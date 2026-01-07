@@ -406,50 +406,6 @@ API를 사용하려면 [Public API > API 호출 및 인증](/nhncloud/ko/public-
 | topicMessageList[0].timestamp | long | 메시지 타임 스탬프 |
 
 
-### 메시지 전송
-
-- 토픽에 메시지를 전송합니다.
-
-#### 요청
-
-[URI]
-
-| 메서드 | URI |
-|---|---|
-| POST | /v1.0/appkeys/{appKey}/topics/{topicName}/messages |
-
-[Path Parameter]
-
-| 이름 | 타입 | 필수 여부 | 설명 |
-|---|---|---|---|
-| topicName | String | 필수 | 토픽 이름 |
-
-[Request Body]
-
-| 이름 | 타입 | 유효 범위 | 필수 여부 | 기본값 | 설명 |
-|---|---|---|---|---|---|
-| partition | int |  | 선택 |  | 파티션 번호, 지정시 해당 파티션 번호로 메시지 전송 |
-| key | String | 최대 255자 | 선택 |  | 메시지 Key |
-| value | String | 최대 255자 | 선택 |  | 메시지 Value |
-| header | List | 최대 255개 | 선택 |  | 메시지 Header |
-| header[].key | String |  | 선택 |  | Header Key |
-| header[].value | String |  | 선택 |  | Header Value |
-
-#### 응답
-
-[응답 본문]
-
-```
-{
-    "header": {
-        "isSuccessful": true,
-        "resultCode": 0,
-        "resultMessage": "Success"
-    }
-}
-```
-
-
 ### 파티션 목록 조회
 
 - 토픽의 파티션 목록을 조회합니다.

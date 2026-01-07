@@ -25,5 +25,4 @@
 |5000103|Topic update fail. |토픽 수정에 실패했습니다.|
 |5000104|Topic delete fail. |토픽 삭제에 실패했습니다.|
 |5000106|Get Messages fail. |메시지 조회에 실패했습니다.|
-|5000107|Send Messages fail. |메시지 전송에 실패했습니다.|
 |5000108|Get Consumer Groups fail. |컨슈머 그룹 조회에 실패했습니다.|
