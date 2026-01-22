@@ -23,7 +23,7 @@
 | 4030000 | Permission denied. | 권한이 거부되었습니다. |
 | 4040100 | Topic not found. | 토픽을 찾을 수 없습니다. |
 | 4040200 | Cluster not found. | 클러스터를 찾을 수 없습니다. |
-| 4040400 | User not found. | 사용자를 찾을 수 없습니다. |
+| 4040400 | AppKey not found. | 앱키를 찾을 수 없습니다. |
 | 5000000 | Internal API fail. | 내부 API 호출에 실패했습니다. |
 | 5000100 | Topic create fail. | 토픽 생성에 실패했습니다. |
 | 5000101 | Topic update fail. | 토픽 수정에 실패했습니다. |
