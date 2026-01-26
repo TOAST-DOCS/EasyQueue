@@ -11,16 +11,16 @@ EasyQueue 서비스에 Kafka 클라이언트를 사용하여 메시지를 송수
 Kafka 클라이언트를 사용하여 EasyQueue 서비스에서 메시지를 송수신하기 위해서는 NHN Cloud 사용자 인증 정보가 필요합니다. 인증 정보는 SASL/OAUTHBEARER 방식으로 사용됩니다.
 
 1. NHN Cloud 콘솔에서 **마이 페이지 > API 보안 설정**으로 이동합니다.
-2. 토큰 형식이 JWT인 User Access Key를 생성합니다.
+2. 토큰 타입이 **JWT**인 User Access Key를 생성합니다.
 3. 발급받은 인증 정보는 Kafka 클라이언트 설정에서 다음과 같이 사용됩니다.
 
 | 항목 | 설명 | Kafka 클라이언트 설정 |
 |------|------|----------------------|
-| User Access Key ID | 사용자 인증 키 | `sasl.oauthbearer.client.id` |
+| User Access Key | 사용자 인증 키 | `sasl.oauthbearer.client.id` |
 | Secret Access Key | 사용자 비밀 키 | `sasl.oauthbearer.client.secret` |
-| Token Endpoint URL | OAuth 토큰 발급 URL | `sasl.oauthbearer.token.endpoint.url` |
+| 인증 서버 도메인 | OAuth 토큰 발급 URL | `sasl.oauthbearer.token.endpoint.url` |
 
-자세한 내용은 [Public API > API 호출 및 인증](/nhncloud/ko/public-api/user-access-key-token/)을 참고하세요.
+자세한 내용은 [Public API > API 인증 방식 > User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token/)을 참고하세요.
 
 ### 인가 정보 확인
 
