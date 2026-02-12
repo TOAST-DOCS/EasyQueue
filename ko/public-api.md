@@ -525,6 +525,6 @@ Kafka 관련 통계를 조회합니다.
 | step | int | 지표 간격(초 단위, 조회 기간에 따라 서버에서 지정) |
 | data | List | 지표 데이터 목록 |
 | data[0].labels | Object | 지표 Labels(BYTE_IN_RATE, BYTE_OUT_RATE, MESSAGE_COUNT: topic / CONSUMER_LAG: topic, consumergroup / LOG_SIZE_PER_PARTITION: topic, partition, broker) |
-| data[0].values | List | 지표 데이터 값 리스트 |
+| data[0].values | List | 지표 데이터 값 목록 |
 | data[0].values[0].timestamp | long | 지표 시간(Unix timestamp - epoch seconds) |
 | data[0].values[0].value | double | 지표 값 |
