@@ -1,4 +1,4 @@
-# API 가이드
+# EasyQueue API v1.0 가이드
 
 **Data & Analytics > EasyQueue > EasyQueue API 가이드**
 

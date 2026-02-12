@@ -726,11 +726,11 @@ func main() {
 - 해당 토픽에 대한 접근 권한이 있는지 확인합니다.
 - EasyQueue 콘솔에서 토픽이 생성되어 있는지 확인합니다.
 
-### Consumer Group 오류
+### 컨슈머 그룹 오류
 
 **증상**: `Group authorization failed` 오류
 
-**해결 방법**:
+#### 해결 방법
 - Consumer Group ID가 올바른 형식인지 확인합니다(형식: `{APP_KEY}.{GROUP_NAME}`).
-- 해당 Consumer Group에 대한 접근 권한이 있는지 확인합니다.
+- 해당 컨슈머 그룹에 대한 접근 권한이 있는지 확인합니다.
 
