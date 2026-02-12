@@ -82,8 +82,8 @@ API를 사용하려면 [Public API > API 인증 방식 > User Access Key 토큰]
 |---|---|---|---|---|---|
 | sortKey | String | TOPIC_NAME, <br>CREATED_AT, <br>UPDATED_AT | 필수 | CREATED_AT | 정렬 기준 키 값 <br>(TOPIC_NAME: 토픽 이름, <br>CREATED_AT: 생성 일시, <br>UPDATED_AT: 수정 일시) |
 | topicIdList | List | 최대 100개 | 선택 |  | 필터: 토픽 ID 목록 |
-| searchTopicName | String |  | 선택 |  | 필터: 토픽 이름 (전방 부분 일치) |
-| sortDirection | String | DESC, ASC | 선택 | DESC | 정렬 방향 (DESC: 내림차순, ASC: 오름차순) |
+| searchTopicName | String |  | 선택 |  | 필터: 토픽 이름(전방 부분 일치) |
+| sortDirection | String | DESC, ASC | 선택 | DESC | 정렬 방향(DESC: 내림차순, ASC: 오름차순) |
 | page | int | 최소 1 | 선택 | 1 | 페이지 번호 |
 | limit | int | 최소 1, 최대 3,000 | 선택 | 50 | 페이지당 항목 수 |
 
@@ -125,19 +125,19 @@ API를 사용하려면 [Public API > API 인증 방식 > User Access Key 토큰]
 |---|---|---|
 | totalCount | long | 전체 토픽 개수 |
 | topicList | List | 토픽 목록 |
-| topicList[0].topicId | String | 토픽 ID (읽기 전용) |
-| topicList[0].topicName | String | 토픽 이름 (수정 불가) |
+| topicList[0].topicId | String | 토픽 ID(읽기 전용) |
+| topicList[0].topicName | String | 토픽 이름(수정 불가) |
 | topicList[0].description | String | 토픽 설명 |
-| topicList[0].bootstrapServer | String | Kafka 클러스터 접속 서버 주소 (읽기 전용) |
+| topicList[0].bootstrapServer | String | Kafka 클러스터 접속 서버 주소(읽기 전용) |
 | topicList[0].partitionCount | int | 토픽 파티션 수 |
 | topicList[0].maxRetentionTimeMs | long | 파티션별 로그 최대 저장 시간(milliseconds) |
 | topicList[0].maxRetentionBytes | long | 파티션별 로그 최대 저장 크기(bytes) |
 | topicList[0].maxMessageBytes | int | 토픽 메시지의 최대 크기(bytes) |
-| topicList[0].totalMessageCount | long | 토픽 전체 메시지 수 (읽기 전용) |
-| topicList[0].consumerGroupCount | int | 컨슈머 그룹 수 (읽기 전용) |
-| topicList[0].createdAt | DateTime | 토픽 생성 일시 (읽기 전용) |
-| topicList[0].updatedAt | DateTime | 토픽 수정 일시 (읽기 전용) |
-| topicList[0].topicStatus | String | 토픽 상태 (ACTIVE, ERROR, WARNING, DELETING) (읽기 전용) |
+| topicList[0].totalMessageCount | long | 토픽 전체 메시지 수(읽기 전용) |
+| topicList[0].consumerGroupCount | int | 컨슈머 그룹 수(읽기 전용) |
+| topicList[0].createdAt | DateTime | 토픽 생성 일시(읽기 전용) |
+| topicList[0].updatedAt | DateTime | 토픽 수정 일시(읽기 전용) |
+| topicList[0].topicStatus | String | 토픽 상태(ACTIVE, ERROR, WARNING, DELETING)(읽기 전용) |
 
 ### 토픽 생성
 
@@ -156,10 +156,10 @@ API를 사용하려면 [Public API > API 인증 방식 > User Access Key 토큰]
 | 이름 | 타입 | 유효 범위 | 필수 여부 | 기본값 | 설명 |
 |---|---|---|---|---|---|
 | topic | Object |  | 필수 |  | 토픽 |
-| topic.topicName | String | 최소 1자, 최대 50자<br>영문자, 숫자, '-' | 필수 |  | 토픽 이름 (수정 불가) |
+| topic.topicName | String | 최소 1자, 최대 50자<br>영문자, 숫자, '-' | 필수 |  | 토픽 이름(수정 불가) |
 | topic.description | String | 최대 255자 | 선택 |  | 토픽 설명 |
 | topic.partitionCount | int | 최소 1, 최대 16 | 필수 |  | 토픽 파티션 수 |
-| topic.maxRetentionTimeMs | long | 최소 3,600,000 (1시간)<br>최대 1,209,600,000 (14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
+| topic.maxRetentionTimeMs | long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
 | topic.maxRetentionBytes | long | 최소 1,024<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
 | topic.maxMessageBytes | int | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
 
@@ -264,7 +264,7 @@ API를 사용하려면 [Public API > API 인증 방식 > User Access Key 토큰]
 | topic | Object |  | 필수 |  | 토픽 |
 | topic.description | String | 최대 255자 | 선택 |  | 토픽 설명 |
 | topic.partitionCount | int | 최소 1, 최대 16 | 필수 |  | 토픽 파티션 수<br>파티션 수는 상향 조정만 가능 |
-| topic.maxRetentionTimeMs | long | 최소 3,600,000 (1시간)<br>최대 1,209,600,000 (14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
+| topic.maxRetentionTimeMs | long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
 | topic.maxRetentionBytes | long | 최소 1,024<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
 | topic.maxMessageBytes | int | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
 
@@ -481,8 +481,8 @@ Kafka 관련 통계를 조회합니다.
 |---|---|---|---|---|---|
 | metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION, <br>TOP_CONSUMER_GROUPS_BY_LAG | 필수 |  | 메트릭 타입<br>* BYTE_IN_RATE: 초당 수신 바이트 수<br>* BYTE_OUT_RATE: 초당 송신 바이트 수<br>* MESSAGE_COUNT: 메시지 수<br>* CONSUMER_LAG: 컨슈머 그룹 LAG(지연량)<br>* LOG_SIZE_PER_PARTITION: 파티션별 로그 크기 |
 | topicName | String |  | 필수 |  | 토픽 이름 |
-| startDateTime | DateTime | ISO 8601 형식 | 필수 |  | 조회 시작 시간 (예: 2023-10-27T19:30:00+09:00) |
-| endDateTime | DateTime | ISO 8601 형식 | 필수 |  | 조회 마지막 시간 (예: 2023-10-27T20:30:00+09:00) |
+| startDateTime | DateTime | ISO 8601 형식 | 필수 |  | 조회 시작 시간(예: 2023-10-27T19:30:00+09:00) |
+| endDateTime | DateTime | ISO 8601 형식 | 필수 |  | 조회 마지막 시간(예: 2023-10-27T20:30:00+09:00) |
 
 #### 응답
 
@@ -522,9 +522,9 @@ Kafka 관련 통계를 조회합니다.
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | metricsType | String | 메트릭 타입 |
-| step | int | 지표 간격 (초 단위, 조회 기간에 따라 서버에서 지정) |
+| step | int | 지표 간격(초 단위, 조회 기간에 따라 서버에서 지정) |
 | data | List | 지표 데이터 리스트 |
-| data[0].labels | Object | 지표 Labels (BYTE_IN_RATE, BYTE_OUT_RATE, MESSAGE_COUNT: topic / CONSUMER_LAG: topic, consumergroup / LOG_SIZE_PER_PARTITION: topic, partition, broker) |
+| data[0].labels | Object | 지표 Labels(BYTE_IN_RATE, BYTE_OUT_RATE, MESSAGE_COUNT: topic / CONSUMER_LAG: topic, consumergroup / LOG_SIZE_PER_PARTITION: topic, partition, broker) |
 | data[0].values | List | 지표 데이터 값 리스트 |
-| data[0].values[0].timestamp | long | 지표 시간 (Unix timestamp - epoch seconds) |
+| data[0].values[0].timestamp | long | 지표 시간(Unix timestamp - epoch seconds) |
 | data[0].values[0].value | double | 지표 값 |

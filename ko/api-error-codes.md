@@ -14,8 +14,8 @@
 | 4000103 | Topic is not in ACTIVE status. | 토픽이 ACTIVE 상태가 아닙니다. |
 | 4000104 | Invalid offset. | 잘못된 오프셋입니다. |
 | 4000300 | Invalid time range. | 잘못된 시간 범위입니다. |
-| 4000301 | Statistics data retention period exceeded. (Maximum: 90 days) | 통계 데이터 보관 기간을 초과했습니다. (최대: 90일) |
-| 4000302 | Invalid query duration. (Minimum: 60 seconds, Maximum: 30 days) | 잘못된 조회 기간입니다. (최소: 60초, 최대: 30일) |
+| 4000301 | Statistics data retention period exceeded.(Maximum: 90 days) | 통계 데이터 보관 기간을 초과했습니다.(최대: 90일) |
+| 4000302 | Invalid query duration.(Minimum: 60 seconds, Maximum: 30 days) | 잘못된 조회 기간입니다.(최소: 60초, 최대: 30일) |
 | 4000303 | Invalid metrics type. | 잘못된 메트릭 타입입니다. |
 | 4000400 | Topic quota exceeded. | 토픽 쿼터를 초과했습니다. |
 | 4000401 | Topic partition quota exceeded. | 토픽 파티션 쿼터를 초과했습니다. |
