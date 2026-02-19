@@ -39,7 +39,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 
 | 이름 | 설명 |
 | --- | --- |
-| appKey | 콘솔에서 발급받은 앱 키(Appkey) |
+| appKey | 콘솔에서 발급받은 앱키(Appkey) |
 
 ### 응답 공통 정보
 
@@ -106,8 +106,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topicIdList | List | 최대 100개 | 선택 |  | 필터: 토픽 ID 목록 |
 | searchTopicName | String |  | 선택 |  | 필터: 토픽 이름(전방 부분 일치) |
 | sortDirection | String | DESC, ASC | 선택 | DESC | 정렬 방향(DESC: 내림차순, ASC: 오름차순) |
-| page | int | 최소 1 | 선택 | 1 | 페이지 번호 |
-| limit | int | 최소 1, 최대 3,000 | 선택 | 50 | 페이지당 항목 수 |
+| page | Integer | 최소 1 | 선택 | 1 | 페이지 번호 |
+| limit | Integer | 최소 1, 최대 3,000 | 선택 | 50 | 페이지당 항목 수 |
 
 #### 응답
 
@@ -145,18 +145,18 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| totalCount | long | 전체 토픽 개수 |
+| totalCount | Long | 전체 토픽 개수 |
 | topicList | List | 토픽 목록 |
 | topicList[0].topicId | String | 토픽 ID(읽기 전용) |
 | topicList[0].topicName | String | 토픽 이름(수정 불가) |
 | topicList[0].description | String | 토픽 설명 |
 | topicList[0].bootstrapServer | String | Kafka 클러스터 접속 서버 주소(읽기 전용) |
-| topicList[0].partitionCount | int | 토픽 파티션 수 |
-| topicList[0].maxRetentionTimeMs | long | 파티션별 로그 최대 저장 시간(milliseconds) |
-| topicList[0].maxRetentionBytes | long | 파티션별 로그 최대 저장 크기(bytes) |
-| topicList[0].maxMessageBytes | int | 토픽 메시지의 최대 크기(bytes) |
-| topicList[0].totalMessageCount | long | 토픽 전체 메시지 수(읽기 전용) |
-| topicList[0].consumerGroupCount | int | 컨슈머 그룹 수(읽기 전용) |
+| topicList[0].partitionCount | Integer | 토픽 파티션 수 |
+| topicList[0].maxRetentionTimeMs | Long | 파티션별 로그 최대 저장 시간(milliseconds) |
+| topicList[0].maxRetentionBytes | Long | 파티션별 로그 최대 저장 크기(bytes) |
+| topicList[0].maxMessageBytes | Integer | 토픽 메시지의 최대 크기(bytes) |
+| topicList[0].totalMessageCount | Long | 토픽 전체 메시지 수(읽기 전용) |
+| topicList[0].consumerGroupCount | Integer | 컨슈머 그룹 수(읽기 전용) |
 | topicList[0].createdAt | DateTime | 토픽 생성 일시(읽기 전용) |
 | topicList[0].updatedAt | DateTime | 토픽 수정 일시(읽기 전용) |
 | topicList[0].topicStatus | String | 토픽 상태(ACTIVE, ERROR, WARNING, DELETING)(읽기 전용) |
@@ -180,10 +180,10 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topic | Object |  | 필수 |  | 토픽 |
 | topic.topicName | String | 최소 1자, 최대 50자<br>영문자, 숫자, '-' | 필수 |  | 토픽 이름(수정 불가) |
 | topic.description | String | 최대 255자 | 선택 |  | 토픽 설명 |
-| topic.partitionCount | int | 최소 1, 최대 16 | 필수 |  | 토픽 파티션 수 |
-| topic.maxRetentionTimeMs | long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
-| topic.maxRetentionBytes | long | 최소 1,024<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
-| topic.maxMessageBytes | int | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
+| topic.partitionCount | Integer | 최소 1, 최대 16 | 필수 |  | 토픽 파티션 수 |
+| topic.maxRetentionTimeMs | Long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
+| topic.maxRetentionBytes | Long | 최소 1,024<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
+| topic.maxMessageBytes | Integer | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
 
 #### 응답
 
@@ -285,10 +285,10 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|---|---|---|
 | topic | Object |  | 필수 |  | 토픽 |
 | topic.description | String | 최대 255자 | 선택 |  | 토픽 설명 |
-| topic.partitionCount | int | 최소 1, 최대 16 | 필수 |  | 토픽 파티션 수<br>파티션 수는 상향 조정만 가능 |
-| topic.maxRetentionTimeMs | long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
-| topic.maxRetentionBytes | long | 최소 1,024<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
-| topic.maxMessageBytes | int | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
+| topic.partitionCount | Integer | 최소 1, 최대 16 | 필수 |  | 토픽 파티션 수<br>파티션 수는 상향 조정만 가능 |
+| topic.maxRetentionTimeMs | Long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
+| topic.maxRetentionBytes | Long | 최소 1,024<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
+| topic.maxMessageBytes | Integer | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
 
 #### 응답
 
@@ -405,11 +405,11 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | partitionList | List | 파티션 목록 |
-| partitionList[0].partition | int | 파티션 번호 |
-| partitionList[0].replicaCount | int | 파티션 레플리카 수 |
-| partitionList[0].startOffset | long | 파티션 시작 오프셋 |
-| partitionList[0].endOffset | long | 파티션 마지막 오프셋 |
-| partitionList[0].messageCount | long | 파티션 전체 메시지 수 |
+| partitionList[0].partition | Integer | 파티션 번호 |
+| partitionList[0].replicaCount | Integer | 파티션 레플리카 수 |
+| partitionList[0].startOffset | Long | 파티션 시작 오프셋 |
+| partitionList[0].endOffset | Long | 파티션 마지막 오프셋 |
+| partitionList[0].messageCount | Long | 파티션 전체 메시지 수 |
 
 
 ### 컨슈머 그룹 목록 조회
@@ -472,15 +472,15 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | consumerGroupList | List | 컨슈머 그룹 목록 |
 | consumerGroupList[0].groupId | String | 컨슈머 그룹 ID |
 | consumerGroupList[0].groupState | String | 컨슈머 그룹 상태<br>* Stable(정상): 모든 컨슈머가 정상적으로 동작<br>* Dead(비활성화): 컨슈머 그룹이 비활성화된 상태<br>* Empty(빈 그룹): 컨슈머 그룹에 활성 컨슈머가 없음<br>* Assigning(파티션 할당 중): 컨슈머 그룹에 파티션 할당 중<br>* Reconciling(파티션 조정 중): 할당된 파티션 조정 중<br>* PreparingRebalance(리밸런싱 준비 중): 컨슈머 그룹 변경으로 인한 파티션 리밸런싱 준비 중<br>* CompletingRebalance(리밸런싱 완료 중): 컨슈머 할당 후 동기화 진행 중<br>* Unknown(알 수 없음) |
-| consumerGroupList[0].totalLag | long | 컨슈머 그룹 전체 Lag |
+| consumerGroupList[0].totalLag | Long | 컨슈머 그룹 전체 Lag |
 | consumerGroupList[0].memberList | List | 컨슈머(멤버) ID 목록 |
 | consumerGroupList[0].memberList[0].memberId | String | 컨슈머(멤버) ID |
 | consumerGroupList[0].memberList[0].clientId | String | 클라이언트 ID |
 | consumerGroupList[0].memberList[0].partitionList | List | 파티션 정보 목록 |
-| consumerGroupList[0].memberList[0].partitionList[0].partition | int | 파티션 번호 |
-| consumerGroupList[0].memberList[0].partitionList[0].currentOffset | long | 현재 오프셋 |
-| consumerGroupList[0].memberList[0].partitionList[0].endOffset | long | 마지막 오프셋 |
-| consumerGroupList[0].memberList[0].partitionList[0].lag | long | Lag |
+| consumerGroupList[0].memberList[0].partitionList[0].partition | Integer | 파티션 번호 |
+| consumerGroupList[0].memberList[0].partitionList[0].currentOffset | Long | 현재 오프셋 |
+| consumerGroupList[0].memberList[0].partitionList[0].endOffset | Long | 마지막 오프셋 |
+| consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
 ## Statistics API
@@ -544,9 +544,9 @@ Kafka 관련 통계를 조회합니다.
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | metricsType | String | 메트릭 타입 |
-| step | int | 지표 간격(초 단위, 조회 기간에 따라 서버에서 지정) |
+| step | Integer | 지표 간격(초 단위, 조회 기간에 따라 서버에서 지정) |
 | data | List | 지표 데이터 목록 |
 | data[0].labels | Object | 지표 Labels(BYTE_IN_RATE, BYTE_OUT_RATE, MESSAGE_COUNT: topic / CONSUMER_LAG: topic, consumergroup / LOG_SIZE_PER_PARTITION: topic, partition, broker) |
 | data[0].values | List | 지표 데이터 값 목록 |
-| data[0].values[0].timestamp | long | 지표 시간(Unix timestamp - epoch seconds) |
-| data[0].values[0].value | double | 지표 값 |
+| data[0].values[0].timestamp | Long | 지표 시간(Unix timestamp - epoch seconds) |
+| data[0].values[0].value | Double | 지표 값 |
