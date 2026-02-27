@@ -33,7 +33,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 
 #### Path Parameter
 
-모든 API는 앱 키를 Path Parameter로 지정해야 합니다.
+모든 API는 앱키를 Path Parameter로 지정해야 합니다.
 
 예: /v1.0/appkeys/{appKey}/
 
@@ -104,7 +104,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|---|---|---|
 | sortKey | String | TOPIC_NAME, <br>CREATED_AT, <br>UPDATED_AT | 필수 | CREATED_AT | 정렬 기준 키 값 <br>(TOPIC_NAME: 토픽 이름, <br>CREATED_AT: 생성 일시, <br>UPDATED_AT: 수정 일시) |
 | topicIdList | List | 최대 100개 | 선택 |  | 필터: 토픽 ID 목록 |
-| searchTopicName | String |  | 선택 |  | 필터: 토픽 이름(전방 부분 일치) |
+| searchTopicName | String |  | 선택 |  | 필터: 토픽 이름(부분 일치) |
 | sortDirection | String | DESC, ASC | 선택 | DESC | 정렬 방향(DESC: 내림차순, ASC: 오름차순) |
 | page | Integer | 최소 1 | 선택 | 1 | 페이지 번호 |
 | limit | Integer | 최소 1, 최대 3,000 | 선택 | 50 | 페이지당 항목 수 |
