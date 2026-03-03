@@ -124,7 +124,7 @@ View a topic list.
     "topicList": [
         {
             "topicId": "topic-id-123",
-            "topicName": "test-topic",
+            "topicName": "{appKey}.test-topic",
             "description": "test topic",
             "bootstrapServer": "kafka.example.com:9092",
             "partitionCount": 3,
@@ -182,7 +182,7 @@ Create a topic.
 | topic.description | String | Max. 255 characters | Optional |  | Topic description |
 | topic.partitionCount | Integer | Min. 1, Max. 16 | Required |  | Number of topic partitions |
 | topic.maxRetentionTimeMs | Long | Min. 3,600,000 (1 hour)<br>Max. 1,209,600,000 (14 days) | Required |  | Maximum log retention period per partition (milliseconds) |
-| topic.maxRetentionBytes | Long | Min. 1,024<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
+| topic.maxRetentionBytes | Long | Min. 1,073,741,824<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
  
 #### 응답
@@ -198,7 +198,7 @@ Create a topic.
     },
     "topic": {
         "topicId": "topic-id-123",
-        "topicName": "test-topic",
+        "topicName": "{appKey}.test-topic",
         "description": "test topic",
         "bootstrapServer": "kafka.example.com:9092",
         "partitionCount": 3,
@@ -245,7 +245,7 @@ Retrieve details of a specific topic.
     },
     "topic": {
         "topicId": "topic-id-123",
-        "topicName": "test-topic",
+        "topicName": "{appKey}.test-topic",
         "description": "test topic",
         "bootstrapServer": "kafka.example.com:9092",
         "partitionCount": 3,
@@ -287,7 +287,7 @@ Edit a topic.
 | topic.description | String | Max. 255 characters | Optional |  | Topic description |
 | topic.partitionCount | Integer | Min. 1, Max. 16 | Required |  | Number of topic partitions<br>The number of partitions can only be increased |
 | topic.maxRetentionTimeMs | Long | Min. 3,600,000 (1 hour)<br>Max. 1,209,600,000 (14 days) | Required |  | Maximum log retention period per partition (milliseconds) |
-| topic.maxRetentionBytes | Long | Min. 1,024<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
+| topic.maxRetentionBytes | Long | Min. 1,073,741,824<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
 
 #### 응답
@@ -303,7 +303,7 @@ Edit a topic.
     },
     "topic": {
         "topicId": "topic-id-123",
-        "topicName": "test-topic",
+        "topicName": "{appKey}.test-topic",
         "description": "updated test topic",
         "bootstrapServer": "kafka.example.com:9092",
         "partitionCount": 5,
@@ -471,7 +471,7 @@ Retrieve a list of a topic's consumer groups.
 |---|---|---|
 | consumerGroupList | List | Consumer group list |
 | consumerGroupList[0].groupId | String | Consumer group ID |
-| consumerGroupList[0].groupState | String | Consumer group status<br>\* Stable: All consumers are operating normally<br>\* Dead (deleted): The consumer group has been deleted.<br>\* Empty (no active members): The consumer group has no active consumers<br>\* Assigning: Assigning partitions to consumer groups.<br>\* Reconciling (synchronizing members): Reconciling allocated partitions<br>\* PreparingRebalance (rebalancing): Preparing to rebalance partition due to consumer group change.<br>\* CompletingRebalance (completing rebalance): Synchronization in progress after consumer allocation.<br>\* Unknown |
+| consumerGroupList[0].groupState | String | Consumer group status<br>• Stable: All consumers are operating normally<br>• Dead (deleted): The consumer group has been deleted.<br>• Empty (no active members): The consumer group has no active consumers<br>• Assigning: Assigning partitions to consumer groups.<br>• Reconciling (synchronizing members): Reconciling allocated partitions<br>• PreparingRebalance (rebalancing): Preparing to rebalance partition due to consumer group change.<br>• CompletingRebalance (completing rebalance): Synchronization in progress after consumer allocation.<br>• Unknown |
 | consumerGroupList[0].totalLag | Long | Total consumer group lag |
 | consumerGroupList[0].memberList | List | Consumer (member) ID list |
 | consumerGroupList[0].memberList[0].memberId | String | Consumer (member) ID |
@@ -501,10 +501,10 @@ View Kafka-related statistics.
 
 | Name | Type | Valid range | Required | Default | Description |
 |---|---|---|---|---|---|
-| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION, <br>TOP_CONSUMER_GROUPS_BY_LAG | Required |  | Metric type<br>\* BYTE_IN_RATE: Bytes received per second<br>\* BYTE_OUT_RATE: Bytes sent per second<br>\* MESSAGE_COUNT: Message count<br>\* CONSUMER_LAG: Consumer group lag (lag)<br>\* LOG_SIZE_PER_PARTITION: Log size per partition |
+| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION | Required |  | Metric type<br>• BYTE_IN_RATE: Bytes received per second<br>• BYTE_OUT_RATE: Bytes sent per second<br>• MESSAGE_COUNT: Message count<br>• CONSUMER_LAG: Consumer group lag (lag)<br>• LOG_SIZE_PER_PARTITION: Log size per partition |
 | topicName | String |  | Required |  | Topic name |
-| startDateTime | DateTime | ISO 8601 format | Required |  | Search start time (e.g., 2023-10-27T19:30:00+09:00) |
-| endDateTime | DateTime | ISO 8601 format | Required |  | Search end time (e.g., 2023-10-27T20:30:00+09:00) |
+| startDateTime | DateTime | ISO 8601 format, <br>Within 90 days | Required |  | Search start time (e.g., 2023-10-27T19:30:00+09:00) |
+| endDateTime | DateTime | ISO 8601 format, <br>Search period: Min. 60 seconds, Max. 30 days | Required |  | Search end time (e.g., 2023-10-27T20:30:00+09:00) |
 
 #### Response
 

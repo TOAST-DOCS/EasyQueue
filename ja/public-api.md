@@ -124,7 +124,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
     "topicList": [
         {
             "topicId": "topic-id-123",
-            "topicName": "test-topic",
+            "topicName": "{appKey}.test-topic",
             "description": "テストトピック",
             "bootstrapServer": "kafka.example.com:9092",
             "partitionCount": 3,
@@ -182,7 +182,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topic.description | String | 最大255文字 | 任意 |  | トピック説明 |
 | topic.partitionCount | Integer | 最小1、最大16 | 必須 |  | トピックのパーティション数 |
 | topic.maxRetentionTimeMs | Long | 最小3,600,000(1時間)<br>最大1,209,600,000(14日) | 必須 |  | パーティション別のログ最大保存時間(milliseconds) |
-| topic.maxRetentionBytes | Long | 最小1,024<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
+| topic.maxRetentionBytes | Long | 最小1,073,741,824<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
 | topic.maxMessageBytes | Integer | 最小1,024<br>最大262,144 | 必須 |  | トピックメッセージの最大サイズ(bytes) |
 
 #### レスポンス
@@ -198,7 +198,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
     },
     "topic": {
         "topicId": "topic-id-123",
-        "topicName": "test-topic",
+        "topicName": "{appKey}.test-topic",
         "description": "テストトピック",
         "bootstrapServer": "kafka.example.com:9092",
         "partitionCount": 3,
@@ -245,7 +245,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
     },
     "topic": {
         "topicId": "topic-id-123",
-        "topicName": "test-topic",
+        "topicName": "{appKey}.test-topic",
         "description": "テストトピック",
         "bootstrapServer": "kafka.example.com:9092",
         "partitionCount": 3,
@@ -287,7 +287,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topic.description | String | 最大255文字 | 任意 |  | トピック説明 |
 | topic.partitionCount | Integer | 最小1、最大16 | 必須 |  | トピックのパーティション数<br>パーティション数は上方調整のみ可能 |
 | topic.maxRetentionTimeMs | Long | 最小3,600,000(1時間)<br>最大1,209,600,000(14日) | 必須 |  | パーティション別のログ最大保存時間(milliseconds) |
-| topic.maxRetentionBytes | Long | 最小1,024<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
+| topic.maxRetentionBytes | Long | 最小1,073,741,824<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
 | topic.maxMessageBytes | Integer | 最小1,024<br>最大262,144 | 必須 |  | トピックメッセージの最大サイズ(bytes) |
 
 #### レスポンス
@@ -303,7 +303,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
     },
     "topic": {
         "topicId": "topic-id-123",
-        "topicName": "test-topic",
+        "topicName": "{appKey}.test-topic",
         "description": "修正されたトピック説明",
         "bootstrapServer": "kafka.example.com:9092",
         "partitionCount": 5,
@@ -471,7 +471,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 |---|---|---|
 | consumerGroupList | List | コンシューマーグループ一覧 |
 | consumerGroupList[0].groupId | String | コンシューマーグループID |
-| consumerGroupList[0].groupState | String | コンシューマーグループの状態<br>* Stable(正常)：全てのコンシューマーが正常に動作<br>* Dead(削除済み)：コンシューマーグループが削除された状態<br>* Empty(アクティブメンバーなし)：コンシューマーグループにアクティブなコンシューマーが存在しない<br>* Assigning(パーティション割り当て中)：コンシューマーグループにパーティションを割り当て中<br>* Reconciling(メンバー同期中)：割り当てられたパーティションを調整中<br>* PreparingRebalance(リバランス準備中)：コンシューマーグループの変更によるパーティションリバランスの準備中<br>* CompletingRebalance(リバランス完了中)：コンシューマー割り当て後の同期を進行中<br>* Unknown(不明) |
+| consumerGroupList[0].groupState | String | コンシューマーグループの状態<br>• Stable(正常)：全てのコンシューマーが正常に動作<br>• Dead(削除済み)：コンシューマーグループが削除された状態<br>• Empty(アクティブメンバーなし)：コンシューマーグループにアクティブなコンシューマーが存在しない<br>• Assigning(パーティション割り当て中)：コンシューマーグループにパーティションを割り当て中<br>• Reconciling(メンバー同期中)：割り当てられたパーティションを調整中<br>• PreparingRebalance(リバランス準備中)：コンシューマーグループの変更によるパーティションリバランスの準備中<br>• CompletingRebalance(リバランス完了中)：コンシューマー割り当て後の同期を進行中<br>• Unknown(不明) |
 | consumerGroupList[0].totalLag | Long | コンシューマーグループの全体Lag |
 | consumerGroupList[0].memberList | List | コンシューマー(メンバー)ID一覧 |
 | consumerGroupList[0].memberList[0].memberId | String | コンシューマー(メンバー)ID |
@@ -501,10 +501,10 @@ Kafkaに関する統計を照会します。
 
 | 名前 | タイプ | 有効範囲 | 必須の有無 | デフォルト値 | 説明 |
 |---|---|---|---|---|---|
-| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION, <br>TOP_CONSUMER_GROUPS_BY_LAG | 必須 |  | メトリクスタイプ<br>* BYTE_IN_RATE：1秒あたりの受信バイト数<br>* BYTE_OUT_RATE：1秒あたりの送信バイト数<br>* MESSAGE_COUNT：メッセージ数<br>* CONSUMER_LAG：コンシューマーグループのLag(遅延量)<br>* LOG_SIZE_PER_PARTITION：パーティション別のログサイズ |
+| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION | 必須 |  | メトリクスタイプ<br>• BYTE_IN_RATE：1秒あたりの受信バイト数<br>• BYTE_OUT_RATE：1秒あたりの送信バイト数<br>• MESSAGE_COUNT：メッセージ数<br>• CONSUMER_LAG：コンシューマーグループのLag(遅延量)<br>• LOG_SIZE_PER_PARTITION：パーティション別のログサイズ |
 | topicName | String |  | 必須 |  | トピック名 |
-| startDateTime | DateTime | ISO 8601形式 | 必須 |  | 照会開始時間(例：2023-10-27T19:30:00+09:00) |
-| endDateTime | DateTime | ISO 8601形式 | 必須 |  | 照会終了時間(例：2023-10-27T20:30:00+09:00) |
+| startDateTime | DateTime | ISO 8601形式、<br>90日以内 | 必須 |  | 照会開始時間(例：2023-10-27T19:30:00+09:00) |
+| endDateTime | DateTime | ISO 8601形式、<br>照会期間：最小60秒、最大30日 | 必須 |  | 照会終了時間(例：2023-10-27T20:30:00+09:00) |
 
 #### レスポンス
 
