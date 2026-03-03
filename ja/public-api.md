@@ -471,7 +471,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 |---|---|---|
 | consumerGroupList | List | コンシューマーグループ一覧 |
 | consumerGroupList[0].groupId | String | コンシューマーグループID |
-| consumerGroupList[0].groupState | String | コンシューマーグループの状態<br>* Stable(正常)：全てのコンシューマーが正常に動作<br>* Dead(削除済み)：コンシューマーグループが削除された状態<br>* Empty(アクティブメンバーなし)：コンシューマーグループにアクティブなコンシューマーが存在しない<br>* Assigning(パーティション割り当て中)：コンシューマーグループにパーティションを割り当て中<br>* Reconciling(メンバー同期中)：割り当てられたパーティションを調整中<br>* PreparingRebalance(リバランス準備中)：コンシューマーグループの変更によるパーティションリバランスの準備中<br>* CompletingRebalance(リバランス完了中)：コンシューマー割り当て後の同期を進行中<br>* Unknown(不明) |
+| consumerGroupList[0].groupState | String | コンシューマーグループの状態<br>• Stable(正常)：全てのコンシューマーが正常に動作<br>• Dead(削除済み)：コンシューマーグループが削除された状態<br>• Empty(アクティブメンバーなし)：コンシューマーグループにアクティブなコンシューマーが存在しない<br>• Assigning(パーティション割り当て中)：コンシューマーグループにパーティションを割り当て中<br>• Reconciling(メンバー同期中)：割り当てられたパーティションを調整中<br>• PreparingRebalance(リバランス準備中)：コンシューマーグループの変更によるパーティションリバランスの準備中<br>• CompletingRebalance(リバランス完了中)：コンシューマー割り当て後の同期を進行中<br>• Unknown(不明) |
 | consumerGroupList[0].totalLag | Long | コンシューマーグループの全体Lag |
 | consumerGroupList[0].memberList | List | コンシューマー(メンバー)ID一覧 |
 | consumerGroupList[0].memberList[0].memberId | String | コンシューマー(メンバー)ID |
@@ -501,7 +501,7 @@ Kafkaに関する統計を照会します。
 
 | 名前 | タイプ | 有効範囲 | 必須の有無 | デフォルト値 | 説明 |
 |---|---|---|---|---|---|
-| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION, <br>TOP_CONSUMER_GROUPS_BY_LAG | 必須 |  | メトリクスタイプ<br>* BYTE_IN_RATE：1秒あたりの受信バイト数<br>* BYTE_OUT_RATE：1秒あたりの送信バイト数<br>* MESSAGE_COUNT：メッセージ数<br>* CONSUMER_LAG：コンシューマーグループのLag(遅延量)<br>* LOG_SIZE_PER_PARTITION：パーティション別のログサイズ |
+| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION | 必須 |  | メトリクスタイプ<br>• BYTE_IN_RATE：1秒あたりの受信バイト数<br>• BYTE_OUT_RATE：1秒あたりの送信バイト数<br>• MESSAGE_COUNT：メッセージ数<br>• CONSUMER_LAG：コンシューマーグループのLag(遅延量)<br>• LOG_SIZE_PER_PARTITION：パーティション別のログサイズ |
 | topicName | String |  | 必須 |  | トピック名 |
 | startDateTime | DateTime | ISO 8601形式 | 必須 |  | 照会開始時間(例：2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601形式 | 必須 |  | 照会終了時間(例：2023-10-27T20:30:00+09:00) |

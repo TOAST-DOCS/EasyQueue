@@ -471,7 +471,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|
 | consumerGroupList | List | 컨슈머 그룹 목록 |
 | consumerGroupList[0].groupId | String | 컨슈머 그룹 ID |
-| consumerGroupList[0].groupState | String | 컨슈머 그룹 상태<br>* Stable(정상): 모든 컨슈머가 정상적으로 동작<br>* Dead(삭제됨): 컨슈머 그룹이 삭제된 상태<br>* Empty(활성 멤버 없음): 컨슈머 그룹에 활성 컨슈머가 없음<br>* Assigning(파티션 할당 중): 컨슈머 그룹에 파티션 할당 중<br>* Reconciling(멤버 동기화 중): 할당된 파티션 조정 중<br>* PreparingRebalance(리밸런스 준비 중): 컨슈머 그룹 변경으로 인한 파티션 리밸런싱 준비 중<br>* CompletingRebalance(리밸런스 완료 중): 컨슈머 할당 후 동기화 진행 중<br>* Unknown(알 수 없음) |
+| consumerGroupList[0].groupState | String | 컨슈머 그룹 상태<br>• Stable(정상): 모든 컨슈머가 정상적으로 동작<br>• Dead(삭제됨): 컨슈머 그룹이 삭제된 상태<br>• Empty(활성 멤버 없음): 컨슈머 그룹에 활성 컨슈머가 없음<br>• Assigning(파티션 할당 중): 컨슈머 그룹에 파티션 할당 중<br>• Reconciling(멤버 동기화 중): 할당된 파티션 조정 중<br>• PreparingRebalance(리밸런스 준비 중): 컨슈머 그룹 변경으로 인한 파티션 리밸런싱 준비 중<br>• CompletingRebalance(리밸런스 완료 중): 컨슈머 할당 후 동기화 진행 중<br>• Unknown(알 수 없음) |
 | consumerGroupList[0].totalLag | Long | 컨슈머 그룹 전체 Lag |
 | consumerGroupList[0].memberList | List | 컨슈머(멤버) ID 목록 |
 | consumerGroupList[0].memberList[0].memberId | String | 컨슈머(멤버) ID |
@@ -501,7 +501,7 @@ Kafka 관련 통계를 조회합니다.
 
 | 이름 | 타입 | 유효 범위 | 필수 여부 | 기본값 | 설명 |
 |---|---|---|---|---|---|
-| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION, <br>TOP_CONSUMER_GROUPS_BY_LAG | 필수 |  | 메트릭 타입<br>* BYTE_IN_RATE: 초당 수신 바이트 수<br>* BYTE_OUT_RATE: 초당 송신 바이트 수<br>* MESSAGE_COUNT: 메시지 수<br>* CONSUMER_LAG: 컨슈머 그룹 Lag(지연량)<br>* LOG_SIZE_PER_PARTITION: 파티션별 로그 크기 |
+| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION | 필수 |  | 메트릭 타입<br>• BYTE_IN_RATE: 초당 수신 바이트 수<br>• BYTE_OUT_RATE: 초당 송신 바이트 수<br>• MESSAGE_COUNT: 메시지 수<br>• CONSUMER_LAG: 컨슈머 그룹 Lag(지연량)<br>• LOG_SIZE_PER_PARTITION: 파티션별 로그 크기 |
 | topicName | String |  | 필수 |  | 토픽 이름 |
 | startDateTime | DateTime | ISO 8601 형식 | 필수 |  | 조회 시작 시간(예: 2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601 형식 | 필수 |  | 조회 마지막 시간(예: 2023-10-27T20:30:00+09:00) |

@@ -471,7 +471,7 @@ Retrieve a list of a topic's consumer groups.
 |---|---|---|
 | consumerGroupList | List | Consumer group list |
 | consumerGroupList[0].groupId | String | Consumer group ID |
-| consumerGroupList[0].groupState | String | Consumer group status<br>\* Stable: All consumers are operating normally<br>\* Dead (deleted): The consumer group has been deleted.<br>\* Empty (no active members): The consumer group has no active consumers<br>\* Assigning: Assigning partitions to consumer groups.<br>\* Reconciling (synchronizing members): Reconciling allocated partitions<br>\* PreparingRebalance (rebalancing): Preparing to rebalance partition due to consumer group change.<br>\* CompletingRebalance (completing rebalance): Synchronization in progress after consumer allocation.<br>\* Unknown |
+| consumerGroupList[0].groupState | String | Consumer group status<br>• Stable: All consumers are operating normally<br>• Dead (deleted): The consumer group has been deleted.<br>• Empty (no active members): The consumer group has no active consumers<br>• Assigning: Assigning partitions to consumer groups.<br>• Reconciling (synchronizing members): Reconciling allocated partitions<br>• PreparingRebalance (rebalancing): Preparing to rebalance partition due to consumer group change.<br>• CompletingRebalance (completing rebalance): Synchronization in progress after consumer allocation.<br>• Unknown |
 | consumerGroupList[0].totalLag | Long | Total consumer group lag |
 | consumerGroupList[0].memberList | List | Consumer (member) ID list |
 | consumerGroupList[0].memberList[0].memberId | String | Consumer (member) ID |
@@ -501,7 +501,7 @@ View Kafka-related statistics.
 
 | Name | Type | Valid range | Required | Default | Description |
 |---|---|---|---|---|---|
-| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION, <br>TOP_CONSUMER_GROUPS_BY_LAG | Required |  | Metric type<br>\* BYTE_IN_RATE: Bytes received per second<br>\* BYTE_OUT_RATE: Bytes sent per second<br>\* MESSAGE_COUNT: Message count<br>\* CONSUMER_LAG: Consumer group lag (lag)<br>\* LOG_SIZE_PER_PARTITION: Log size per partition |
+| metricsType | String | BYTE_IN_RATE, <br>BYTE_OUT_RATE, <br>MESSAGE_COUNT, <br>CONSUMER_LAG, <br>LOG_SIZE_PER_PARTITION | Required |  | Metric type<br>• BYTE_IN_RATE: Bytes received per second<br>• BYTE_OUT_RATE: Bytes sent per second<br>• MESSAGE_COUNT: Message count<br>• CONSUMER_LAG: Consumer group lag (lag)<br>• LOG_SIZE_PER_PARTITION: Log size per partition |
 | topicName | String |  | Required |  | Topic name |
 | startDateTime | DateTime | ISO 8601 format | Required |  | Search start time (e.g., 2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601 format | Required |  | Search end time (e.g., 2023-10-27T20:30:00+09:00) |
