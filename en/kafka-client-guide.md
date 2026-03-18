@@ -20,7 +20,7 @@ NHN Cloud user credentials are required to send and receive messages from the Ea
 | Secret Access Key | User secret key | sasl.oauthbearer.client.secret |
 | Authentication Server Domain | OAuth token issuance URL | sasl.oauthbearer.token.endpoint.url |
 
-For more information, see [NHN Cloud > Public API > API Authentication Methods > User Access Key Token](/nhncloud/ko/public-api/user-access-key-token/).
+For more information, see [NHN Cloud > Public API > API Authentication Methods > User Access Key Token](/nhncloud/en/public-api/user-access-key-token/).
 
 ### Check the Authorization Information
 

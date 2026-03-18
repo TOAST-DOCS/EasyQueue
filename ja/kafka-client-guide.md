@@ -20,7 +20,7 @@ Kafkaクライアントを使用してEasyQueueサービスでメッセージを
 | Secret Access Key | ユーザーシークレットキー | sasl.oauthbearer.client.secret |
 | 認証サーバードメイン | OAuthトークン発行URL | sasl.oauthbearer.token.endpoint.url |
 
-詳細は[パブリックAPI > API認証方式 > User Access Keyトークン](/nhncloud/ko/public-api/user-access-key-token/)を参照してください。
+詳細は[パブリックAPI > API認証方式 > User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token/)を参照してください。
 
 ### 認可情報の確認
 

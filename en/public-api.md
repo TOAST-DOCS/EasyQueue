@@ -15,7 +15,7 @@
 
 EasyQueue uses an opaque User Access Key token for authentication/authorization when making API calls.
 A User Access Key token is a temporary access token of the Bearer type that is issued based on a User Access Key.
-For more information about issuing and using User Access Key tokens, see [User Access Key Token](/nhncloud/ko/public-api/user-access-key-token).
+For more information about issuing and using User Access Key tokens, see [User Access Key Token](/nhncloud/en/public-api/user-access-key-token).
 
 The issued token must be included in the request header.
 
