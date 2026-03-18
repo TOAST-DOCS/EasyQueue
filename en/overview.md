@@ -35,7 +35,7 @@ You can check the processing status of consumer groups at a glance, and view lag
 
 ## How EasyQueue Works
 
-![[Figure 1] How EasyQueue works]()
+![[Figure 1] How EasyQueue works](http://static.toastoven.net/prod_easyqueue/15_data&analytics_easyqueue_img_en.png)
 
 ➊ Message publishing: Producers send data to specific topics in EasyQueue.
 ➋ Message queuing: Received messages are stored distributed within the EasyQueue cluster, ensuring that they are not lost during high volumes of traffic.
