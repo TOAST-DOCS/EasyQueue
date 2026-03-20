@@ -59,7 +59,7 @@ This is where you can view detailed information about a topic. You can check par
 ### Message
 * A list of messages in the EasyQueue topic is displayed. Only up to 50 messages are retrieved.
 * You can see the message transmission time, partition ID, offset, key, value, and header information.
-* Click **View Message** button in the Header/Key/Value column to see detailed information about the key, value, and header.
+* Click **View Message** button in the Action column to see detailed information about the key, value, and header.
 * You can search for messages by configuring the Partition ID and Message Retrieval Type. 
     * Partition ID: Specify a specific partition to retrieve messages. 
     * Message retrieval type: From first, From offset, From new, From latest
