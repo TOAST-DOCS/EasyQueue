@@ -1,4 +1,4 @@
-# Release Notes
+## Release Notes
 
 **Data & Analytics > EasyQueue > Release Notes**
 
