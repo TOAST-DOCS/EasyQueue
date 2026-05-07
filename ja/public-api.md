@@ -1,4 +1,4 @@
-# EasyQueue API v1.0 ガイド
+## EasyQueue API v1.0 ガイド
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 ガイド**
 

@@ -1,4 +1,4 @@
-# EasyQueue概要
+## EasyQueue概要
 
 **Data & Analytics > EasyQueue > 概要**
 

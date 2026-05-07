@@ -1,4 +1,4 @@
-# リリースノート
+## リリースノート
 
 **Data & Analytics > EasyQueue > リリースノート**
 
