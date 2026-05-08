@@ -1,4 +1,4 @@
-# Console Guide
+## Console Guide
 
 **Data & Analytics > EasyQueue > Console User Guide**
 
@@ -6,11 +6,14 @@
 
 An EasyQueue topic is a unit for grouping related messages. They are used to asynchronously publish and subscribe to data between applications.
 
-### View a Topic List 
+### View a Topic List
 
 * A list of registered EasyQueue topics is displayed.
 * When you click an item, the bottom tab of the topic's basic information appears.
 * To view the details of a topic, click **View Details** button in the Action column.
+
+!!! tip "Note"
+    When using transactions, the total message count may include transaction control records (commit/abort markers), which can result in a higher count than the actual number of messages sent.
 
 ### Create a Topic
 
@@ -53,18 +56,23 @@ Deletion occurs in segment file units (1 GB). Since segments currently being wri
 This is where you can view detailed information about a topic. You can check partitions, messages, consumer groups, and monitoring information.
 
 ### Partition
+
 * A list of partitions in the EasyQueue topic is displayed.
 * You can view partition ID, start offset, end offset, and total message count information. 
 
+!!! tip "Note"
+    When using transactions, the offset and message count may include transaction control records (commit/abort markers), which can result in a higher count than the actual number of messages sent.
+
 ### Message
+
 * A list of messages in the EasyQueue topic is displayed. Only up to 50 messages are retrieved.
 * You can see the message transmission time, partition ID, offset, key, value, and header information.
 * Click **View Message** button in the Action column to see detailed information about the key, value, and header.
-* You can search for messages by configuring the Partition ID and Message Retrieval Type. 
-    * Partition ID: Specify a specific partition to retrieve messages. 
+* You can search for messages by configuring the Partition ID and Message Retrieval Type.
+    * Partition ID: Specify a specific partition to retrieve messages.
     * Message retrieval type: From first, From offset, From new, From latest
         * From first: Retrieve messages in order of when they were sent.
-        * From offset: Retrieve only offsets above a specific offset. You must enter an offset. 
+        * From offset: Retrieve only offsets above a specific offset. You must enter an offset.
         * From latest: retrieve new messages coming in from the time of the search.
 
 #### Message Transmission Test
@@ -81,8 +89,9 @@ This is where you can view detailed information about a topic. You can check par
 When testing message transmission, you can send it as an empty message without entering any partition ID, header, key, or value.
 
 ### Consumer Group
+
 * A list of consumer groups for EasyQueue topics is displayed. Only up to 50 consumer groups are retrieved.
-* You can retrieve consumer group ID, number of consumers, assigned partitions, total lag, and status information. 
+* You can retrieve consumer group ID, number of consumers, assigned partitions, total lag, and status information.
 * When you click an item, the Consumers Information bottom tab of the Consumer group appears.
     * You see a list of consumers that belong to the Consumer group.
     * You can view consumer ID, partition ID, lag, current offset, and end offset information.
@@ -92,14 +101,15 @@ When testing message transmission, you can send it as an empty message without e
 
 
 ### Monitoring
+
 * With EasyQueue topic monitoring, you can view a topic's inbound/outbound byte rate, message count, lag by consumer group, and overall data size metrics.
 
 | Metric | Description |
 |------|------|
-| **Inbound/outbound byte rate** | **Inbound**: The amount of data throughput that a producer sends to a topic.<br>**Outbound**: the amount of data throughput consumers read from a topic |
+| **Byte rate** | Inbound: Data throughput sent by producers to the topic<br>Outbound: Data throughput read by consumers from the topic |
 | **Number of messages** | Indicates the total number of messages stored in the topic. |
-| **Consumer group Lag** | This indicates the number of messages in a consumer group that have yet to be processed. It represents the gap between the latest message produced and the last offset read by the consumer.<br>Lag monitoring metrics by consumer group are only retrieved for the 10 highest consumer lag values at this time. |
-| **Data storage size** | The disk storage space that the topic is currently using.<br>Legends are broken down by partition and include both leader and replica partitions. |
+| **Consumer group Lag** | The number of messages that the consumer group has not yet processed. Indicates the difference between the latest message produced by the producer and the last message read by the consumer.<br>The consumer Lag monitoring metric displays only the top 10 consumer groups with the highest Lag values at the current point in time. |
+| **Total data size** | The disk storage space currently used by the topic.<br>The legend is displayed per partition of the topic and includes both leader and replica partitions. |
 
 !!! tip "Note"
     Monitoring data is retained for 90 days.

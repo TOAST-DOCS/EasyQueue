@@ -137,10 +137,10 @@ public class EasyQueueProducer {
         // SASL/OAUTHBEARER authentication configuration
         props.put("security.protocol", "SASL_SSL");
         props.put("sasl.mechanism", "OAUTHBEARER");
-        props.put("sasl.login.callback.handler.class", 
+        props.put("sasl.login.callback.handler.class",
             "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginCallbackHandler");
         props.put("sasl.oauthbearer.token.endpoint.url", tokenEndpointUrl);
-        props.put("sasl.jaas.config", 
+        props.put("sasl.jaas.config",
             "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required " +
             "clientId=\"" + userAccessKey + "\" " +
             "clientSecret=\"" + secretAccessKey + "\" " +
@@ -215,10 +215,10 @@ public class EasyQueueConsumer {
         // SASL/OAUTHBEARER authentication configuration
         props.put("security.protocol", "SASL_SSL");
         props.put("sasl.mechanism", "OAUTHBEARER");
-        props.put("sasl.login.callback.handler.class", 
+        props.put("sasl.login.callback.handler.class",
             "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginCallbackHandler");
         props.put("sasl.oauthbearer.token.endpoint.url", tokenEndpointUrl);
-        props.put("sasl.jaas.config", 
+        props.put("sasl.jaas.config",
             "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required " +
             "clientId=\"" + userAccessKey + "\" " +
             "clientSecret=\"" + secretAccessKey + "\" " +
@@ -690,6 +690,7 @@ func main() {
 </details>
 
 ## Transaction Support
+
 Kafka transactions process multiple messages as a single unit, ensuring that all messages either succeed or fail together.
 Since consumers cannot read messages until a transaction is committed, incomplete data processing is prevented.
 
@@ -722,8 +723,10 @@ Since consumers cannot read messages until a transaction is committed, incomplet
 
 #### Symptoms
 
+Connection refused or Broker not available error
 
 #### Solution
+
 - Verify that the Bootstrap Servers address is correct.
 - Ensure that broker ports 30000 through 30008 are open on your network firewall.
 
@@ -731,8 +734,10 @@ Since consumers cannot read messages until a transaction is committed, incomplet
 
 #### Symptoms
 
+Authentication failed or SASL authentication failed error
 
 #### Solution
+
 - Verify that the User Access Key and Secret Access Key are correct.
 - Verify that the Token Endpoint URL is correct.
 - Verify that the app key is included correctly in the scope settings.
@@ -742,16 +747,20 @@ Since consumers cannot read messages until a transaction is committed, incomplet
 
 #### Symptoms
 
+SSL handshake failed or Certificate verification failed error
 
 #### Solution
-Verify that security.protocol is set to SASL_SSL.
+
+- Verify that `security.protocol` is set to `SASL_SSL`.
 
 ### Topic Access Errors
 
 #### Symptoms
 
+Topic authorization failed or Unknown topic error
 
 #### Solution
+
 - Verify that the topic name is correct (format: {APP_KEY}.{TOPIC_NAME}).
 - Verify that you have access to the topic.
 - In the EasyQueue console, verify that the topic has been created.
@@ -760,61 +769,90 @@ Verify that security.protocol is set to SASL_SSL.
 
 #### Symptoms
 
+Group authorization failed
 
 #### Solution
+
 - Verify that the consumer group ID is in the correct format (format: {APP_KEY}.{GROUP_NAME}).
 - Verify that you have access to the consumer group.
 
 ### Transaction Timeout Error
 
 #### Symptom
+
 An InvalidTxnTimeoutException error occurs and the transaction cannot be started.
 
-#### Resolution
+#### Solution
+
 - Verify that the `transaction.timeout.ms` value does not exceed 300,000 ms (5 minutes).
 - Set the value to 300,000 or less.
 
 ### Transactional ID Permission Error
 
 #### Symptom
+
 A TransactionalIdAuthorizationFailed error occurs and the transaction cannot be started.
 
-#### Resolution
+#### Solution
+
 - Verify that `transactional.id` starts with the appkey prefix (format: {APP_KEY}.{identifier}).
 - If configured without the appkey prefix, the broker will reject the request.
 
 ### Producer Fencing Error
 
 #### Symptom
+
 A ProducerFencedException error occurs and message transmission or commit fails.
 
-#### Resolution
+#### Solution
+
 - Check whether another producer instance using the same `transactional.id` is running.
 - Use a unique `transactional.id` for each producer instance.
 
 ### Concurrent Transaction Conflict Error
 
 #### Symptom
+
 A ConcurrentTransactionsException error occurs and a new transaction cannot be started.
 
-#### Resolution
+#### Solution
+
 - Start the next transaction only after the commit or abort of the previous transaction is complete.
 - Multiple transactions cannot be opened simultaneously with the same `transactional.id`.
 
 ### Transaction Messages Not Being Read
 
 #### Symptom
+
 Messages committed by the producer are not being read by the consumer.
 
-#### Resolution
+#### Solution
+
 - Verify that `isolation.level=read_committed` is configured on the consumer.
 
+
+### Message timestamp error
+
+#### Symptoms
+
+Message delivery fails with an InvalidTimestampException error.
+
+```
+Failed to send message: org.apache.kafka.common.errors.InvalidTimestampException: Timestamp 1776230740705 of message with offset 0 is out of range. The timestamp should be within [-9223370260710424559, 1776147951248]
+```
+
+#### Solution
+
+- The broker rejects messages with a timestamp more than 1 hour in the future. If you are specifying the message timestamp manually, check the value.
+- Check the system time of the producer server (timezone, NTP synchronization, etc.).
 
 ### Transaction Delay During Broker Maintenance
 
 #### Symptom
+
 COORDINATOR_LOAD_IN_PROGRESS or COORDINATOR_NOT_AVAILABLE errors occur temporarily during broker maintenance, causing a delay in starting transactions.
 
-#### Resolution
+#### Solution
+
 - Transactions may be temporarily delayed during broker maintenance. Recovery usually occurs automatically within a few seconds.
 - Verify that retry settings (`retries`, `retry.backoff.ms`) are configured on the producer client.
