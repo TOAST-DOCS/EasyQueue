@@ -1,4 +1,4 @@
-# API 오류 코드
+## API 오류 코드
 
 **Data & Analytics > EasyQueue > API 오류 코드**
 

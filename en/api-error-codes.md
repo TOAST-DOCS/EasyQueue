@@ -1,4 +1,4 @@
-# API Error Code
+## API Error Code
 
 **Data & Analytics > EasyQueue > API Error Code**
 

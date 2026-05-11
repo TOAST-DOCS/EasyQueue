@@ -1,4 +1,4 @@
-# EasyQueue 개요
+## EasyQueue 개요
 
 **Data & Analytics > EasyQueue > 개요**
 
