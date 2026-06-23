@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=3206ac15eba9 -->
+
 ## 릴리스 노트
 
 **Data & Analytics > EasyQueue > 릴리스 노트**
 
+<a id="march-24-2026"></a>
+
 ## 2026. 03. 24.
+
+<a id="added-features"></a>
 
 ### 신규 기능 추가
 
