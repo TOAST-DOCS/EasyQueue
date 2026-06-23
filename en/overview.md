@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=b2b6156afbb4 -->
+
 ## EasyQueue Overview
 
 **Data & Analytics > EasyQueue > Overview**
@@ -6,11 +8,17 @@ NHN Cloud EasyQueue is a fully managed message queue service that lets you insta
 Users can easily build flexible data pipelines by asynchronously producing and consuming data between applications via Kafka topics.
 Also, messages are distributed and replicated within the cluster to prevent data loss even during failures. This ensures reliable processing, as messages remain safely stored in the queue even if the receiving application is temporarily unavailable.
 
+<a id="service-access-path"></a>
+
 ## Service Access Path
 
 You can access the service by selecting **Data & Analytics > EasyQueue** in the NHN Cloud console.
 
+<a id="main-features"></a>
+
 ## Main Features
+
+<a id="topic-creation-and-lifecycle-management"></a>
 
 ### Topic Creation and Lifecycle Management
 
@@ -18,9 +26,13 @@ The web console allows you to easily create and delete topics with a click, no c
 You can flexibly configure topic-specific policies, such as data retention periods and maximum message sizes, to align with your service requirements.
 Furthermore, you can optimize processing performance by adjusting the number of partitions to match your traffic scale.
 
+<a id="monitoring-dashboard"></a>
+
 ### Monitoring Dashboard
 
 You can see metrics like data inflow by topic, number of messages, and more.
+
+<a id="message-sendreceive-test"></a>
 
 ### Message Send/Receive Test
 
@@ -28,10 +40,14 @@ You can issue test messages directly from within the console, without having to 
 You can view the messages loaded in a specific topic.
 This can be used as a debugging tool to check communication status during the initial integration phase or to validate data formats.
 
+<a id="consumer-group-monitoring"></a>
+
 ### Consumer Group Monitoring
 
 You can view consumer groups and a list of consumers per group.
 You can check the processing status of consumer groups at a glance, and view lag numbers to quickly understand processing performance.
+
+<a id="how-easyqueue-works"></a>
 
 ## How EasyQueue Works
 
@@ -40,6 +56,8 @@ You can check the processing status of consumer groups at a glance, and view lag
 ➊ Message publishing: Producers send data to specific topics in EasyQueue.
 ➋ Message queuing: Received messages are stored distributed within the EasyQueue cluster, ensuring that they are not lost during high volumes of traffic.
 ➌ Message subscription: Consumers fetch queued messages and process the data according to their business logic.
+
+<a id="service-terms"></a>
 
 ## Service Terms
 
@@ -52,6 +70,8 @@ You can check the processing status of consumer groups at a glance, and view lag
 | Producer | An entity that sends messages to a topic |
 | Consumer | An entity that subscribes to a specific topic to receive and consume messages |
 | Consumer Group | A group of multiple consumers subscribed to the same topic |
+
+<a id="table-of-contents"></a>
 
 ## Table of Contents
 
