@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=3206ac15eba9 -->
+
 ## Release Notes
 
 **Data & Analytics > EasyQueue > Release Notes**
 
+<a id="march-24-2026"></a>
+
 ## March 24, 2026
+
+<a id="added-features"></a>
 
 ### Added Features
 
