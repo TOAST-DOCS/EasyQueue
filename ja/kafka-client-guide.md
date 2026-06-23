@@ -1,10 +1,16 @@
+<!-- pre-align:aligned sig=849e49358ae0 -->
+
 ## Kafkaクライアントガイド
 
 **Data & Analytics > EasyQueue > Kafkaクライアントガイド**
 
 EasyQueueサービスでKafkaクライアントを使用して、メッセージを送受信する方法を説明します。
 
+<a id="prerequisites"></a>
+
 ## 事前準備
+
+<a id="verify-credentials"></a>
 
 ### 認証情報の確認
 
@@ -22,9 +28,13 @@ Kafkaクライアントを使用してEasyQueueサービスでメッセージを
 
 詳細は[パブリックAPI > API認証方式 > User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token/)を参照してください。
 
+<a id="check-the-authorization-information"></a>
+
 ### 認可情報の確認
 
 Kafkaクライアントを使用してメッセージを送受信するには、ユーザーに**EasyQueue CLIENT**が含まれる権限が必要です。
+
+<a id="check-the-connection-information"></a>
 
 ### 接続情報の確認
 
@@ -38,6 +48,8 @@ EasyQueueコンソールで以下の情報を確認します。
 
 !!! tip "参考：Consumer Group規則"
     Consumer Group IDはコンソールで別途提供されず、{APP_KEY}.{GROUP_NAME}の形式で指定する必要があります。Appkeyで始まらないConsumer Group IDは使用できません。
+
+<a id="configure-sasloauthbearer"></a>
 
 ### SASL/OAUTHBEARER設定
 
@@ -55,7 +67,11 @@ EasyQueueはSASL/OAUTHBEARER認証方式を使用します。Kafkaクライア�
 !!! danger "注意"
     OAuthトークンは、User Access Keyで設定したトークンの有効時間が経過すると期限切れになります。長時間実行されるプロデューサー/コンシューマーは、トークンの自動更新設定が必須であり、設定しない場合はトークンの期限切れ時に認証エラーで接続が切断されます。
 
+<a id="client-examples-by-language"></a>
+
 ## 言語別クライアント例
+
+<a id="java"></a>
 
 ### Java
 
@@ -248,6 +264,8 @@ public class EasyQueueConsumer {
 
 </details>
 
+<a id="python"></a>
+
 ### Python
 
 <details>
@@ -360,6 +378,8 @@ finally:
 ```
 
 </details>
+
+<a id="javascriptnodejs"></a>
 
 ### JavaScript(Node.js)
 
@@ -496,6 +516,8 @@ run();
 ```
 
 </details>
+
+<a id="go"></a>
 
 ### Go
 
@@ -689,10 +711,14 @@ func main() {
 
 </details>
 
+<a id="transaction-support"></a>
+
 ## トランザクションのサポート
 
 Kafkaトランザクションは、複数のメッセージを1つのまとまりとして処理し、全て成功するか、全て失敗することを保証する機能です。
 トランザクションがコミットされるまでコンシューマーは該当メッセージを読み取れないため、不完全なデータが処理される状況を防ぐことができます。
+
+<a id="producer-settings"></a>
 
 ### プロデューサー設定
 
@@ -709,6 +735,8 @@ Kafkaトランザクションは、複数のメッセージを1つのまとま�
 設定した時間内にcommitまたはabortを完了しない場合、ブローカーが該当のトランザクションを自動的にabort処理します。
 
 
+<a id="consumer-settings"></a>
+
 ### コンシューマー設定
 
 | 設定項目 | 説明                                                      |
@@ -717,24 +745,38 @@ Kafkaトランザクションは、複数のメッセージを1つのまとま�
 
 
 
+<a id="troubleshooting"></a>
+
 ## トラブルシューティング
 
+<a id="connection-errors"></a>
+
 ### 接続エラー
+
+<a id="symptoms"></a>
 
 #### 症状
 
 Connection refused または Broker not available エラー
+
+<a id="solution"></a>
 
 #### 解決方法
 
 - Bootstrap Serversのアドレスが正しいか確認します。
 - ネットワークのファイアウォールでブローカーのポート30000～30008が開いているか確認します。
 
+<a id="authentication-errors"></a>
+
 ### 認証エラー
+
+<a id="symptoms-2"></a>
 
 #### 症状
 
 Authentication failed または SASL authentication failed エラー
+
+<a id="solution-2"></a>
 
 #### 解決方法
 
@@ -743,21 +785,33 @@ Authentication failed または SASL authentication failed エラー
 - scopeの設定にAppkeyが正しく含まれているか確認します。
 - 認証情報に権限が付与されているか確認します。
 
+<a id="ssl-errors"></a>
+
 ### SSLエラー
+
+<a id="symptoms-3"></a>
 
 #### 症状
 
 SSL handshake failed または Certificate verification failed エラー
 
+<a id="solution-3"></a>
+
 #### 解決方法
 
 - `security.protocol`が`SASL_SSL`に設定されているか確認します。
 
+<a id="topic-access-errors"></a>
+
 ### トピックアクセスエラー
+
+<a id="symptoms-4"></a>
 
 #### 症状
 
 Topic authorization failed または Unknown topic エラー
+
+<a id="solution-4"></a>
 
 #### 解決方法
 
@@ -765,73 +819,113 @@ Topic authorization failed または Unknown topic エラー
 - 該当トピックに対するアクセス権限があるか確認します。
 - EasyQueueコンソールでトピックが作成されているか確認します。
 
+<a id="consumer-group-errors"></a>
+
 ### コンシューマーグループエラー
+
+<a id="symptoms-5"></a>
 
 #### 症状
 
 Group authorization failed
+
+<a id="solution-5"></a>
 
 #### 解決方法
 
 - Consumer Group IDが正しい形式か確認します(形式: {APP_KEY}.{GROUP_NAME})。
 - 該当コンシューマーグループに対するアクセス権限があるか確認します。
 
+<a id="transaction-timeout-error"></a>
+
 ### トランザクションのタイムアウトエラー
+
+<a id="symptom"></a>
 
 #### 事象
 
 InvalidTxnTimeoutExceptionエラーが発生し、トランザクションを開始できない
+
+<a id="solution-6"></a>
 
 #### 解決方法
 
 - `transaction.timeout.ms`の値が300,000ms(5分)を超過していないか確認します。
 - 値を300,000以下に設定します。
 
+<a id="transactional-id-permission-error"></a>
+
 ### トランザクションID認可エラー
+
+<a id="symptom-2"></a>
 
 #### 事象
 
 TransactionalIdAuthorizationFailedエラーが発生し、トランザクションを開始できない
+
+<a id="solution-7"></a>
 
 #### 解決方法
 
 - `transactional.id`がAppkeyのプレフィックスで始まっているか確認します(形式: {APP_KEY}.{識別子})。
 - Appkeyのプレフィックスなしで設定した場合、ブローカーがリクエストを拒否します。
 
+<a id="producer-fencing-error"></a>
+
 ### プロデューサーのフェンシング(Fencing)エラー
+
+<a id="symptom-3"></a>
 
 #### 事象
 
 ProducerFencedExceptionエラーが発生し、メッセージの送信またはcommitに失敗する
+
+<a id="solution-8"></a>
 
 #### 解決方法
 
 - 同一の`transactional.id`を使用する別のプロデューサーインスタンスが実行中であるか確認します。
 - プロデューサーインスタンスごとに固有の`transactional.id`を使用します。
 
+<a id="concurrent-transaction-conflict-error"></a>
+
 ### 同時トランザクションの競合エラー
+
+<a id="symptom-4"></a>
 
 #### 事象
 
 ConcurrentTransactionsExceptionエラーが発生し、新しいトランザクションを開始できない
+
+<a id="solution-9"></a>
 
 #### 解決方法
 
 - 以前のトランザクションのcommitまたはabortが完了した後に、次のトランザクションを開始します。
 - 同じ`transactional.id`で同時に複数のトランザクションを開くことはできません。
 
+<a id="transaction-messages-not-being-read"></a>
+
 ### トランザクションメッセージが読み取れない
+
+<a id="symptom-5"></a>
 
 #### 事象
 
 プロデューサーでcommitしたメッセージがコンシューマーで読み取れない
+
+<a id="solution-10"></a>
 
 #### 解決方法
 
 - コンシューマーに`isolation.level=read_committed`が設定されているか確認します。
 
 
+<a id="message-timestamp-error"></a>
+
 ### メッセージタイムスタンプエラー
+
+<a id="symptoms-6"></a>
 
 #### 事象
 
@@ -841,16 +935,24 @@ InvalidTimestampExceptionエラーが発生し、メッセージの送信に失�
 Failed to send message: org.apache.kafka.common.errors.InvalidTimestampException: Timestamp 1776230740705 of message with offset 0 is out of range. The timestamp should be within [-9223370260710424559, 1776147951248]
 ```
 
+<a id="solution-11"></a>
+
 #### 解決方法
 
 - ブローカーは1時間以上未来のタイムスタンプのメッセージを拒否します。メッセージのタイムスタンプを直接指定している場合は値を確認してください。
 - プロデューサーサーバーのシステム時間を確認してください(タイムゾーン、NTP同期など)。
 
+<a id="transaction-delay-during-broker-maintenance"></a>
+
 ### ブローカーのメンテナンス時のトランザクション遅延
+
+<a id="symptom-6"></a>
 
 #### 事象
 
 ブローカーのメンテナンス中にCOORDINATOR_LOAD_IN_PROGRESSまたはCOORDINATOR_NOT_AVAILABLEエラーが一時的に発生し、トランザクションの開始が遅延する
+
+<a id="solution-12"></a>
 
 #### 解決方法
 
