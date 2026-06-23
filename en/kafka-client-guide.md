@@ -1,10 +1,16 @@
+<!-- pre-align:aligned sig=849e49358ae0 -->
+
 ## Kafka Client Guide
 
 **Data & Analytics > EasyQueue > Kafka Client Guide**
 
 This guide explains how to use the Kafka client to send and receive messages to and from the EasyQueue service.
 
+<a id="prerequisites"></a>
+
 ## Prerequisites
+
+<a id="verify-credentials"></a>
 
 ### Verify Credentials
 
@@ -22,9 +28,13 @@ NHN Cloud user credentials are required to send and receive messages from the Ea
 
 For more information, see [NHN Cloud > Public API > API Authentication Methods > User Access Key Token](/nhncloud/en/public-api/user-access-key-token/).
 
+<a id="check-the-authorization-information"></a>
+
 ### Check the Authorization Information
 
 To send and receive messages using the Kafka client, users need permissions that include **EasyQueue CLIENT**.
+
+<a id="check-the-connection-information"></a>
 
 ### Check the Connection Information
 
@@ -38,6 +48,8 @@ In the EasyQueue console, view the following information:
 
 !!! tip "Note: Consumer Group Rules"
 Consumer Group IDs are not provided separately in the console and must be specified in the format: {APP_KEY}.{GROUP_NAME}. Any Consumer Group ID that does not start with the AppKey cannot be used.
+
+<a id="configure-sasloauthbearer"></a>
 
 ### Configure SASL/OAUTHBEARER
 
@@ -55,7 +67,11 @@ EasyQueue uses the SASL/OAUTHBEARER authentication method. The following setting
 !!! danger "Caution"
 OAuth tokens expire based on the token lifetime configured in the User Access Key settings. For long-running producers and consumers, auto-refresh must be enabled. Otherwise, the connection will be terminated due to authentication errors upon token expiration.
 
+<a id="client-examples-by-language"></a>
+
 ## Client Examples by Language
+
+<a id="java"></a>
 
 ### Java
 
@@ -248,6 +264,8 @@ public class EasyQueueConsumer {
 
 </details>
 
+<a id="python"></a>
+
 ### Python
 
 <details>
@@ -360,6 +378,8 @@ finally:
 ```
 
 </details>
+
+<a id="javascriptnodejs"></a>
 
 ### JavaScript(Node.js)
 
@@ -496,6 +516,8 @@ run();
 ```
 
 </details>
+
+<a id="go"></a>
 
 ### Go
 
@@ -689,10 +711,14 @@ func main() {
 
 </details>
 
+<a id="transaction-support"></a>
+
 ## Transaction Support
 
 Kafka transactions process multiple messages as a single unit, ensuring that all messages either succeed or fail together.
 Since consumers cannot read messages until a transaction is committed, incomplete data processing is prevented.
+
+<a id="producer-settings"></a>
 
 ### Producer Settings
 
@@ -709,6 +735,8 @@ Since consumers cannot read messages until a transaction is committed, incomplet
     If a commit or abort is not completed within the configured time, the broker will automatically abort the transaction.
 
 
+<a id="consumer-settings"></a>
+
 ### Consumer Settings
 
 | Setting | Description |
@@ -717,24 +745,38 @@ Since consumers cannot read messages until a transaction is committed, incomplet
 
 
 
+<a id="troubleshooting"></a>
+
 ## Troubleshooting
 
+<a id="connection-errors"></a>
+
 ### Connection Errors
+
+<a id="symptoms"></a>
 
 #### Symptoms
 
 Connection refused or Broker not available error
+
+<a id="solution"></a>
 
 #### Solution
 
 - Verify that the Bootstrap Servers address is correct.
 - Ensure that broker ports 30000 through 30008 are open on your network firewall.
 
+<a id="authentication-errors"></a>
+
 ### Authentication Errors
+
+<a id="symptoms-2"></a>
 
 #### Symptoms
 
 Authentication failed or SASL authentication failed error
+
+<a id="solution-2"></a>
 
 #### Solution
 
@@ -743,21 +785,33 @@ Authentication failed or SASL authentication failed error
 - Verify that the app key is included correctly in the scope settings.
 - Verify that the credentials are authorized.
 
+<a id="ssl-errors"></a>
+
 ### SSL Errors
+
+<a id="symptoms-3"></a>
 
 #### Symptoms
 
 SSL handshake failed or Certificate verification failed error
 
+<a id="solution-3"></a>
+
 #### Solution
 
 - Verify that `security.protocol` is set to `SASL_SSL`.
 
+<a id="topic-access-errors"></a>
+
 ### Topic Access Errors
+
+<a id="symptoms-4"></a>
 
 #### Symptoms
 
 Topic authorization failed or Unknown topic error
+
+<a id="solution-4"></a>
 
 #### Solution
 
@@ -765,73 +819,113 @@ Topic authorization failed or Unknown topic error
 - Verify that you have access to the topic.
 - In the EasyQueue console, verify that the topic has been created.
 
+<a id="consumer-group-errors"></a>
+
 ### Consumer Group Errors
+
+<a id="symptoms-5"></a>
 
 #### Symptoms
 
 Group authorization failed
+
+<a id="solution-5"></a>
 
 #### Solution
 
 - Verify that the consumer group ID is in the correct format (format: {APP_KEY}.{GROUP_NAME}).
 - Verify that you have access to the consumer group.
 
+<a id="transaction-timeout-error"></a>
+
 ### Transaction Timeout Error
+
+<a id="symptom"></a>
 
 #### Symptom
 
 An InvalidTxnTimeoutException error occurs and the transaction cannot be started.
+
+<a id="solution-6"></a>
 
 #### Solution
 
 - Verify that the `transaction.timeout.ms` value does not exceed 300,000 ms (5 minutes).
 - Set the value to 300,000 or less.
 
+<a id="transactional-id-permission-error"></a>
+
 ### Transactional ID Permission Error
+
+<a id="symptom-2"></a>
 
 #### Symptom
 
 A TransactionalIdAuthorizationFailed error occurs and the transaction cannot be started.
+
+<a id="solution-7"></a>
 
 #### Solution
 
 - Verify that `transactional.id` starts with the appkey prefix (format: {APP_KEY}.{identifier}).
 - If configured without the appkey prefix, the broker will reject the request.
 
+<a id="producer-fencing-error"></a>
+
 ### Producer Fencing Error
+
+<a id="symptom-3"></a>
 
 #### Symptom
 
 A ProducerFencedException error occurs and message transmission or commit fails.
+
+<a id="solution-8"></a>
 
 #### Solution
 
 - Check whether another producer instance using the same `transactional.id` is running.
 - Use a unique `transactional.id` for each producer instance.
 
+<a id="concurrent-transaction-conflict-error"></a>
+
 ### Concurrent Transaction Conflict Error
+
+<a id="symptom-4"></a>
 
 #### Symptom
 
 A ConcurrentTransactionsException error occurs and a new transaction cannot be started.
+
+<a id="solution-9"></a>
 
 #### Solution
 
 - Start the next transaction only after the commit or abort of the previous transaction is complete.
 - Multiple transactions cannot be opened simultaneously with the same `transactional.id`.
 
+<a id="transaction-messages-not-being-read"></a>
+
 ### Transaction Messages Not Being Read
+
+<a id="symptom-5"></a>
 
 #### Symptom
 
 Messages committed by the producer are not being read by the consumer.
+
+<a id="solution-10"></a>
 
 #### Solution
 
 - Verify that `isolation.level=read_committed` is configured on the consumer.
 
 
+<a id="message-timestamp-error"></a>
+
 ### Message timestamp error
+
+<a id="symptoms-6"></a>
 
 #### Symptoms
 
@@ -841,16 +935,24 @@ Message delivery fails with an InvalidTimestampException error.
 Failed to send message: org.apache.kafka.common.errors.InvalidTimestampException: Timestamp 1776230740705 of message with offset 0 is out of range. The timestamp should be within [-9223370260710424559, 1776147951248]
 ```
 
+<a id="solution-11"></a>
+
 #### Solution
 
 - The broker rejects messages with a timestamp more than 1 hour in the future. If you are specifying the message timestamp manually, check the value.
 - Check the system time of the producer server (timezone, NTP synchronization, etc.).
 
+<a id="transaction-delay-during-broker-maintenance"></a>
+
 ### Transaction Delay During Broker Maintenance
+
+<a id="symptom-6"></a>
 
 #### Symptom
 
 COORDINATOR_LOAD_IN_PROGRESS or COORDINATOR_NOT_AVAILABLE errors occur temporarily during broker maintenance, causing a delay in starting transactions.
+
+<a id="solution-12"></a>
 
 #### Solution
 
