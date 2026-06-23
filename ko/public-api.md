@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=25cf60ec74eb -->
+
 ## EasyQueue API v1.0 가이드
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 가이드**
 
+<a id="easyqueue-api-common-information"></a>
+
 ## EasyQueue API 공통 정보
+
+<a id="domain"></a>
 
 ### 도메인
 
@@ -10,6 +16,8 @@
 |-----------|-----------------------------------------------|
 | 한국(판교) 리전 | https://kr1-easyqueue.api.nhncloudservice.com |
 | 한국(평촌) 리전 | https://kr2-easyqueue.api.nhncloudservice.com |
+
+<a id="authentication-and-authorization"></a>
 
 ### 인증 및 권한
 
@@ -29,7 +37,11 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 * EasyQueue VIEWER 권한은 정보를 조회하는 기능만 사용 가능합니다.
 * EasyQueue CLIENT 권한은 메시지를 송/수신하는 기능만 사용 가능합니다. EasyQueue VIEWER 권한을 포함합니다.
 
+<a id="request-common-information"></a>
+
 ### 요청 공통 정보
+
+<a id="path-parameter"></a>
 
 #### Path Parameter
 
@@ -40,6 +52,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | 이름 | 설명 |
 | --- | --- |
 | appKey | 콘솔에서 발급받은 앱키(Appkey) |
+
+<a id="response-common-information"></a>
 
 ### 응답 공통 정보
 
@@ -84,11 +98,17 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | header.resultMessage | String  | 결과 메시지 |
 
 
+<a id="topic-api"></a>
+
 ## Topic API
+
+<a id="view-a-topic-list"></a>
 
 ### 토픽 목록 조회
 
 토픽 목록을 조회합니다.
+
+<a id="request"></a>
 
 #### 요청
 
@@ -108,6 +128,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | sortDirection | String | DESC, ASC | 선택 | DESC | 정렬 방향(DESC: 내림차순, ASC: 오름차순) |
 | page | Integer | 최소 1 | 선택 | 1 | 페이지 번호 |
 | limit | Integer | 최소 1, 최대 3,000 | 선택 | 50 | 페이지당 항목 수 |
+
+<a id="response"></a>
 
 #### 응답
 
@@ -161,9 +183,13 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topicList[0].updatedAt | DateTime | 토픽 수정 일시(읽기 전용) |
 | topicList[0].topicStatus | String | 토픽 상태(ACTIVE, ERROR, WARNING, DELETING)(읽기 전용) |
 
+<a id="create-a-topic"></a>
+
 ### 토픽 생성
 
 토픽을 생성합니다.
+
+<a id="request-2"></a>
 
 #### 요청
 
@@ -184,6 +210,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topic.maxRetentionTimeMs | Long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
 | topic.maxRetentionBytes | Long | 최소 1,073,741,824<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
 | topic.maxMessageBytes | Integer | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
+
+<a id="create-a-topic-1"></a>
 
 #### 응답
 
@@ -214,9 +242,13 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 }
 ```
 
+<a id="single-topic-lookup"></a>
+
 ### 토픽 단건 조회
 
 토픽 정보를 단건 조회합니다.
+
+<a id="request-3"></a>
 
 #### 요청
 
@@ -231,6 +263,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | 이름 | 타입 | 필수 여부 | 설명 |
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
+
+<a id="single-topic-lookup-1"></a>
 
 #### 응답
 
@@ -261,9 +295,13 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 }
 ```
 
+<a id="edit-a-topic"></a>
+
 ### 토픽 수정
 
 토픽을 수정합니다.
+
+<a id="request-4"></a>
 
 #### 요청
 
@@ -289,6 +327,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topic.maxRetentionTimeMs | Long | 최소 3,600,000(1시간)<br>최대 1,209,600,000(14일) | 필수 |  | 파티션별 로그 최대 저장 시간(milliseconds) |
 | topic.maxRetentionBytes | Long | 최소 1,073,741,824<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
 | topic.maxMessageBytes | Integer | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
+
+<a id="edit-a-topic-1"></a>
 
 #### 응답
 
@@ -319,9 +359,13 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 }
 ```
 
+<a id="delete-a-topic"></a>
+
 ### 토픽 삭제
 
 토픽을 삭제합니다.
+
+<a id="request-5"></a>
 
 #### 요청
 
@@ -336,6 +380,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | 이름 | 타입 | 필수 여부 | 설명 |
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
+
+<a id="response-2"></a>
 
 #### 응답
 
@@ -352,9 +398,13 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 ```
 
 
+<a id="view-a-partition-list"></a>
+
 ### 파티션 목록 조회
 
 토픽의 파티션 목록을 조회합니다.
+
+<a id="request-6"></a>
 
 #### 요청
 
@@ -369,6 +419,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | 이름 | 타입 | 필수 여부 | 설명 |
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
+
+<a id="response-3"></a>
 
 #### 응답
 
@@ -412,9 +464,13 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | partitionList[0].messageCount | Long | 파티션 전체 메시지 수 |
 
 
+<a id="retrieve-consumer-group-list"></a>
+
 ### 컨슈머 그룹 목록 조회
 
 토픽의 컨슈머 그룹 목록을 조회합니다.
+
+<a id="request-7"></a>
 
 #### 요청
 
@@ -429,6 +485,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | 이름 | 타입 | 필수 여부 | 설명 |
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
+
+<a id="response-4"></a>
 
 #### 응답
 
@@ -483,11 +541,17 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
+<a id="statistics-api"></a>
+
 ## Statistics API
+
+<a id="query-statistics"></a>
 
 ### 통계 조회
 
 Kafka 관련 통계를 조회합니다.
+
+<a id="request-8"></a>
 
 #### 요청
 
@@ -505,6 +569,8 @@ Kafka 관련 통계를 조회합니다.
 | topicName | String |  | 필수 |  | 토픽 이름 |
 | startDateTime | DateTime | ISO 8601 형식, <br>90일 이내 | 필수 |  | 조회 시작 시간(예: 2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601 형식, <br>조회 기간 최소 60초, 최대 30일 | 필수 |  | 조회 마지막 시간(예: 2023-10-27T20:30:00+09:00) |
+
+<a id="response-5"></a>
 
 #### 응답
 
