@@ -1,10 +1,16 @@
+<!-- pre-align:aligned sig=b5fb10d02e09 -->
+
 ## Console Guide
 
 **Data & Analytics > EasyQueue > Console User Guide**
 
+<a id="manage-topics"></a>
+
 ## Manage Topics
 
 An EasyQueue topic is a unit for grouping related messages. They are used to asynchronously publish and subscribe to data between applications.
+
+<a id="view-a-topic-list"></a>
 
 ### View a Topic List
 
@@ -14,6 +20,8 @@ An EasyQueue topic is a unit for grouping related messages. They are used to asy
 
 !!! tip "Note"
     When using transactions, the total message count may include transaction control records (commit/abort markers), which can result in a higher count than the actual number of messages sent.
+
+<a id="create-a-topic"></a>
 
 ### Create a Topic
 
@@ -36,6 +44,8 @@ Deletion occurs in segment file units (1 GB). Since segments currently being wri
     **Up to 10** EasyQueue topics can be created per project.
     **Up to 64** EasyQueue partitions can be created per project and **up to 16** per topic.
 
+<a id="edit-a-topic"></a>
+
 ### Edit a Topic
 
 1. To edit a topic, click **Edit** button in the Action column.
@@ -45,15 +55,21 @@ Deletion occurs in segment file units (1 GB). Since segments currently being wri
 !!! danger "Caution"
     * The number of partitions in a topic cannot be changed to less than the current number of partitions.
 
+<a id="delete-a-topic"></a>
+
 ### Delete a Topic
 
 1. In the list, click **Delete** button in the Action column.
 2. In the confirmation window, enter the deletion confirmation text and click **Delete**. The deleted data cannot be recovered.
 
 
+<a id="view-topic-details"></a>
+
 ## View Topic Details
 
 This is where you can view detailed information about a topic. You can check partitions, messages, consumer groups, and monitoring information.
+
+<a id="partition"></a>
 
 ### Partition
 
@@ -62,6 +78,8 @@ This is where you can view detailed information about a topic. You can check par
 
 !!! tip "Note"
     When using transactions, the offset and message count may include transaction control records (commit/abort markers), which can result in a higher count than the actual number of messages sent.
+
+<a id="message"></a>
 
 ### Message
 
@@ -74,6 +92,8 @@ This is where you can view detailed information about a topic. You can check par
         * From first: Retrieve messages in order of when they were sent.
         * From offset: Retrieve only offsets above a specific offset. You must enter an offset.
         * From latest: retrieve new messages coming in from the time of the search.
+
+<a id="message-transmission-test"></a>
 
 #### Message Transmission Test
 
@@ -88,6 +108,8 @@ This is where you can view detailed information about a topic. You can check par
 !!! TIP "Note"
 When testing message transmission, you can send it as an empty message without entering any partition ID, header, key, or value.
 
+<a id="consumer-group"></a>
+
 ### Consumer Group
 
 * A list of consumer groups for EasyQueue topics is displayed. Only up to 50 consumer groups are retrieved.
@@ -99,6 +121,8 @@ When testing message transmission, you can send it as an empty message without e
 !!! danger "Caution"
     * If a consumer group remains in the No Members state for more than 7 days, the group information and offsets are automatically deleted.
 
+
+<a id="monitoring"></a>
 
 ### Monitoring
 
