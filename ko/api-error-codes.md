@@ -1,6 +1,10 @@
+<!-- pre-align:aligned sig=c2df5f2d8069 -->
+
 ## API 오류 코드
 
 **Data & Analytics > EasyQueue > API 오류 코드**
+
+<a id="error-code"></a>
 
 ## 오류 코드
 
