@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=25cf60ec74eb -->
+
 ## EasyQueue API v1.0 Guide
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 Guide**
 
+<a id="easyqueue-api-common-information"></a>
+
 ## EasyQueue API Common Information
+
+<a id="domain"></a>
 
 ### Domain
 
@@ -10,6 +16,8 @@
 |-----------|-----------------------------------------------|
 | Korea (Pangyo) Region | https://kr1-easyqueue.api.nhncloudservice.com |
 | Korea (Pyeongchon) region | https://kr2-easyqueue.api.nhncloudservice.com |
+
+<a id="authentication-and-authorization"></a>
 
 ### Authentication and Authorization
 
@@ -29,7 +37,11 @@ Depending on your project member role, the APIs you can call are limited. You ca
 * EasyQueue VIEWER permission only allows you to view information.
 * EasyQueue CLIENT permission only enables the feature to send/receive messages and includes EasyQueue VIEWER permission.
 
+<a id="request-common-information"></a>
+
 ### Request Common Information
+
+<a id="path-parameter"></a>
 
 #### Path Parameter
 
@@ -40,6 +52,8 @@ e.g. /v1.0/appkeys/{appKey}/
 | Name | Description |
 | --- | --- |
 | appKey | Appkey issued from the console |
+
+<a id="response-common-information"></a>
 
 ### Response Common Information
 
@@ -84,11 +98,17 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | header.resultMessage | String  | Result message |
 
 
+<a id="topic-api"></a>
+
 ## Topic API
+
+<a id="view-a-topic-list"></a>
 
 ### View a Topic List
 
 View a topic list.
+
+<a id="request"></a>
 
 #### Request
 
@@ -108,6 +128,8 @@ View a topic list.
 | sortDirection | String | DESC, ASC | Optional | DESC | Sort order (DESC: Descending, ASC: Ascending) |
 | page | Integer | Min. 1 | Optional | 1 | Page No. |
 | limit | Integer | Min. 1, Max. 3,000 | Optional | 50 | Number of items per page |
+
+<a id="response"></a>
 
 #### Response
  
@@ -161,9 +183,13 @@ View a topic list.
 | topicList[0].updatedAt | DateTime | Topic updated at (read-only) |
 | topicList[0].topicStatus | String | Topic status (ACTIVE, ERROR, WARNING, and DELETING) (read-only) |
 
+<a id="create-a-topic"></a>
+
 ### Create a Topic
 
 Create a topic.
+
+<a id="request-2"></a>
 
 #### Request
 
@@ -185,6 +211,8 @@ Create a topic.
 | topic.maxRetentionBytes | Long | Min. 1,073,741,824<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
  
+<a id="create-a-topic-1"></a>
+
 #### 응답
 
 **[Response Body]**
@@ -214,9 +242,13 @@ Create a topic.
 }
 ```
 
+<a id="single-topic-lookup"></a>
+
 ### Single Topic Lookup
 
 Retrieve details of a specific topic.
+
+<a id="request-3"></a>
 
 #### Request
 
@@ -232,6 +264,8 @@ Retrieve details of a specific topic.
 |---|---|---|---|
 | topicName | String | Required | Topic name |
  
+<a id="single-topic-lookup-1"></a>
+
 #### 응답
 
 **[Response Body]**
@@ -261,9 +295,13 @@ Retrieve details of a specific topic.
 }
 ```
 
+<a id="edit-a-topic"></a>
+
 ### Edit a Topic
 
 Edit a topic.
+
+<a id="request-4"></a>
 
 #### Request
 
@@ -289,6 +327,8 @@ Edit a topic.
 | topic.maxRetentionTimeMs | Long | Min. 3,600,000 (1 hour)<br>Max. 1,209,600,000 (14 days) | Required |  | Maximum log retention period per partition (milliseconds) |
 | topic.maxRetentionBytes | Long | Min. 1,073,741,824<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
+
+<a id="edit-a-topic-1"></a>
 
 #### 응답
 
@@ -319,9 +359,13 @@ Edit a topic.
 }
 ```
  
+<a id="delete-a-topic"></a>
+
 ### Delete a Topic
 
 Delete a topic.
+
+<a id="request-5"></a>
 
 #### Request
 
@@ -336,6 +380,8 @@ Delete a topic.
 | Name | Type | Required | Description |
 |---|---|---|---|
 | topicName | String | Required | Topic name |
+
+<a id="response-2"></a>
 
 #### Response
 
@@ -352,9 +398,13 @@ Delete a topic.
 ```
 
  
+<a id="view-a-partition-list"></a>
+
 ### View a Partition List
 
 Retrieve a list of partitions for a topic.
+
+<a id="request-6"></a>
 
 #### Request
 
@@ -369,6 +419,8 @@ Retrieve a list of partitions for a topic.
 | Name | Type | Required | Description |
 |---|---|---|---|
 | topicName | String | Required | Topic name |
+
+<a id="response-3"></a>
 
 #### Response
 
@@ -412,9 +464,13 @@ Retrieve a list of partitions for a topic.
 | partitionList[0].messageCount | Long | Partition-wide message count |
 
 
+<a id="retrieve-consumer-group-list"></a>
+
 ### Retrieve Consumer Group List
 
 Retrieve a list of a topic's consumer groups.
+
+<a id="request-7"></a>
 
 #### Request
 
@@ -429,6 +485,8 @@ Retrieve a list of a topic's consumer groups.
 | Name | Type | Required | Description |
 |---|---|---|---|
 | topicName | String | Required | Topic name |
+
+<a id="response-4"></a>
 
 #### Response
 
@@ -483,11 +541,17 @@ Retrieve a list of a topic's consumer groups.
 | consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
+<a id="statistics-api"></a>
+
 ## Statistics API
+
+<a id="query-statistics"></a>
 
 ### Query Statistics
 
 View Kafka-related statistics.
+
+<a id="request-8"></a>
 
 #### Request
 
@@ -505,6 +569,8 @@ View Kafka-related statistics.
 | topicName | String |  | Required |  | Topic name |
 | startDateTime | DateTime | ISO 8601 format, <br>Within 90 days | Required |  | Search start time (e.g., 2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601 format, <br>Search period: Min. 60 seconds, Max. 30 days | Required |  | Search end time (e.g., 2023-10-27T20:30:00+09:00) |
+
+<a id="response-5"></a>
 
 #### Response
 
