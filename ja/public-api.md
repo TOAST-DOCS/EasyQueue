@@ -1,8 +1,14 @@
+<!-- pre-align:aligned sig=25cf60ec74eb -->
+
 ## EasyQueue API v1.0 ガイド
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 ガイド**
 
+<a id="easyqueue-api-common-information"></a>
+
 ## EasyQueue API共通情報
+
+<a id="domain"></a>
 
 ### ドメイン
 
@@ -10,6 +16,8 @@
 |-----------|-----------------------------------------------|
 | 韓国(パンギョ) リージョン | https://kr1-easyqueue.api.nhncloudservice.com |
 | 韓国(ピョンチョン) リージョン | https://kr2-easyqueue.api.nhncloudservice.com |
+
+<a id="authentication-and-authorization"></a>
 
 ### 認証及び権限
 
@@ -29,7 +37,11 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 * EasyQueue VIEWER権限は、情報を照会する機能のみを使用できます。
 * EasyQueue CLIENT権限は、メッセージを送受信する機能のみを使用できます。EasyQueue VIEWER権限を含みます。
 
+<a id="request-common-information"></a>
+
 ### リクエスト共通情報
+
+<a id="path-parameter"></a>
 
 #### Path Parameter
 
@@ -40,6 +52,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | 名前 | 説明 |
 | --- | --- |
 | appKey | コンソールで発行されたAppkey |
+
+<a id="response-common-information"></a>
 
 ### レスポンス共通情報
 
@@ -84,11 +98,17 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | header.resultMessage | String  | 結果メッセージ |
 
 
+<a id="topic-api"></a>
+
 ## Topic API
+
+<a id="view-a-topic-list"></a>
 
 ### トピック一覧照会
 
 トピック一覧を照会します。
+
+<a id="request"></a>
 
 #### リクエスト
 
@@ -108,6 +128,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | sortDirection | String | DESC, ASC | 任意 | DESC | ソート方向(DESC：降順、ASC：昇順) |
 | page | Integer | 最小1 | 任意 | 1 | ページ番号 |
 | limit | Integer | 最小1、最大3,000 | 任意 | 50 | ページあたりの項目数 |
+
+<a id="response"></a>
 
 #### レスポンス
 
@@ -161,9 +183,13 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topicList[0].updatedAt | DateTime | トピック修正日時(読み取り専用) |
 | topicList[0].topicStatus | String | トピック状態(ACTIVE、ERROR、WARNING、DELETING)(読み取り専用) |
 
+<a id="create-a-topic"></a>
+
 ### トピック作成
 
 トピックを作成します。
+
+<a id="request-2"></a>
 
 #### リクエスト
 
@@ -184,6 +210,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topic.maxRetentionTimeMs | Long | 最小3,600,000(1時間)<br>最大1,209,600,000(14日) | 必須 |  | パーティション別のログ最大保存時間(milliseconds) |
 | topic.maxRetentionBytes | Long | 最小1,073,741,824<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
 | topic.maxMessageBytes | Integer | 最小1,024<br>最大262,144 | 必須 |  | トピックメッセージの最大サイズ(bytes) |
+
+<a id="create-a-topic-1"></a>
 
 #### レスポンス
 
@@ -214,9 +242,13 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 }
 ```
 
+<a id="single-topic-lookup"></a>
+
 ### トピック単件照会
 
 トピック情報を単件照会します。
+
+<a id="request-3"></a>
 
 #### リクエスト
 
@@ -231,6 +263,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | 名前 | タイプ | 必須の有無 | 説明 |
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
+
+<a id="single-topic-lookup-1"></a>
 
 #### レスポンス
 
@@ -261,9 +295,13 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 }
 ```
 
+<a id="edit-a-topic"></a>
+
 ### トピック修正
 
 トピックを修正します。
+
+<a id="request-4"></a>
 
 #### リクエスト
 
@@ -289,6 +327,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topic.maxRetentionTimeMs | Long | 最小3,600,000(1時間)<br>最大1,209,600,000(14日) | 必須 |  | パーティション別のログ最大保存時間(milliseconds) |
 | topic.maxRetentionBytes | Long | 最小1,073,741,824<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
 | topic.maxMessageBytes | Integer | 最小1,024<br>最大262,144 | 必須 |  | トピックメッセージの最大サイズ(bytes) |
+
+<a id="edit-a-topic-1"></a>
 
 #### レスポンス
 
@@ -319,9 +359,13 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 }
 ```
 
+<a id="delete-a-topic"></a>
+
 ### トピック削除
 
 トピックを削除します。
+
+<a id="request-5"></a>
 
 #### リクエスト
 
@@ -336,6 +380,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | 名前 | タイプ | 必須の有無 | 説明 |
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
+
+<a id="response-2"></a>
 
 #### レスポンス
 
@@ -352,9 +398,13 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 ```
 
 
+<a id="view-a-partition-list"></a>
+
 ### パーティション一覧照会
 
 トピックのパーティション一覧を照会します。
+
+<a id="request-6"></a>
 
 #### リクエスト
 
@@ -369,6 +419,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | 名前 | タイプ | 必須の有無 | 説明 |
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
+
+<a id="response-3"></a>
 
 #### レスポンス
 
@@ -412,9 +464,13 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | partitionList[0].messageCount | Long | パーティションの総メッセージ数 |
 
 
+<a id="retrieve-consumer-group-list"></a>
+
 ### コンシューマーグループ一覧照会
 
 トピックのコンシューマーグループ一覧を照会します。
+
+<a id="request-7"></a>
 
 #### リクエスト
 
@@ -429,6 +485,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | 名前 | タイプ | 必須の有無 | 説明 |
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
+
+<a id="response-4"></a>
 
 #### レスポンス
 
@@ -483,11 +541,17 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
+<a id="statistics-api"></a>
+
 ## Statistics API
+
+<a id="query-statistics"></a>
 
 ### 統計照会
 
 Kafkaに関する統計を照会します。
+
+<a id="request-8"></a>
 
 #### リクエスト
 
@@ -505,6 +569,8 @@ Kafkaに関する統計を照会します。
 | topicName | String |  | 必須 |  | トピック名 |
 | startDateTime | DateTime | ISO 8601形式、<br>90日以内 | 必須 |  | 照会開始時間(例：2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601形式、<br>照会期間：最小60秒、最大30日 | 必須 |  | 照会終了時間(例：2023-10-27T20:30:00+09:00) |
+
+<a id="response-5"></a>
 
 #### レスポンス
 
