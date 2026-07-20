@@ -1,8 +1,16 @@
+<!-- pre-align:aligned sig=fc405e428fe3 -->
+
 # APIエラーコード
 
 **Data & Analytics > EasyQueue > APIエラーコード**
 
-## エラーコード
+<a id="section-1"></a>
+## API エラーコード { #section-1 }
+
+<!-- TODO: translate body -->
+
+<a id="error-code"></a>
+## エラーコード { #error-code }
 
 | エラーコード | エラーメッセージ | 説明 |
 | --- | --- | --- |

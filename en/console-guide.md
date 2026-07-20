@@ -1,18 +1,28 @@
+<!-- pre-align:aligned sig=0321896e7605 -->
+
 # Console Guide
 
 **Data & Analytics > EasyQueue > Console User Guide**
 
-## Manage Topics
+<a id="section-1"></a>
+## Console Usage Guide { #section-1 }
+
+<!-- TODO: translate body -->
+
+<a id="manage-topics"></a>
+## Manage Topics { #manage-topics }
 
 An EasyQueue topic is a unit for grouping related messages. They are used to asynchronously publish and subscribe to data between applications.
 
-### View a Topic List 
+<a id="view-a-topic-list"></a>
+### View a Topic List { #view-a-topic-list }
 
 * A list of registered EasyQueue topics is displayed.
 * When you click an item, the bottom tab of the topic's basic information appears.
 * To view the details of a topic, click **View Details** button in the Action column.
 
-### Create a Topic
+<a id="create-a-topic"></a>
+### Create a Topic { #create-a-topic }
 
 1. To create a topic, click **Create Topic** button.
 2. Enter the topic information.
@@ -33,7 +43,8 @@ Deletion occurs in segment file units (1 GB). Since segments currently being wri
     **Up to 10** EasyQueue topics can be created per project.
     **Up to 64** EasyQueue partitions can be created per project and **up to 16** per topic.
 
-### Edit a Topic
+<a id="edit-a-topic"></a>
+### Edit a Topic { #edit-a-topic }
 
 1. To edit a topic, click **Edit** button in the Action column.
 2. Edit the topic information. You can edit the following: description, number of partitions, maximum message size, maximum retention size per partition, and message retention period.
@@ -42,21 +53,25 @@ Deletion occurs in segment file units (1 GB). Since segments currently being wri
 !!! danger "Caution"
     * The number of partitions in a topic cannot be changed to less than the current number of partitions.
 
-### Delete a Topic
+<a id="delete-a-topic"></a>
+### Delete a Topic { #delete-a-topic }
 
 1. In the list, click **Delete** button in the Action column.
 2. In the confirmation window, enter the deletion confirmation text and click **Delete**. The deleted data cannot be recovered.
 
 
-## View Topic Details
+<a id="view-topic-details"></a>
+## View Topic Details { #view-topic-details }
 
 This is where you can view detailed information about a topic. You can check partitions, messages, consumer groups, and monitoring information.
 
-### Partition
+<a id="partition"></a>
+### Partition { #partition }
 * A list of partitions in the EasyQueue topic is displayed.
 * You can view partition ID, start offset, end offset, and total message count information. 
 
-### Message
+<a id="message"></a>
+### Message { #message }
 * A list of messages in the EasyQueue topic is displayed. Only up to 50 messages are retrieved.
 * You can see the message transmission time, partition ID, offset, key, value, and header information.
 * Click **View Message** button in the Action column to see detailed information about the key, value, and header.
@@ -67,6 +82,7 @@ This is where you can view detailed information about a topic. You can check par
         * From offset: Retrieve only offsets above a specific offset. You must enter an offset. 
         * From latest: retrieve new messages coming in from the time of the search.
 
+<a id="message-transmission-test"></a>
 #### Message Transmission Test
 
 1. To test message delivery, click **Message Transmission Test** button.
@@ -80,7 +96,8 @@ This is where you can view detailed information about a topic. You can check par
 !!! TIP "Note"
 When testing message transmission, you can send it as an empty message without entering any partition ID, header, key, or value.
 
-### Consumer Group
+<a id="consumer-group"></a>
+### Consumer Group { #consumer-group }
 * A list of consumer groups for EasyQueue topics is displayed. Only up to 50 consumer groups are retrieved.
 * You can retrieve consumer group ID, number of consumers, assigned partitions, total lag, and status information. 
 * When you click an item, the Consumers Information bottom tab of the Consumer group appears.
@@ -91,7 +108,8 @@ When testing message transmission, you can send it as an empty message without e
     * If a consumer group remains in the No Members state for more than 7 days, the group information and offsets are automatically deleted.
 
 
-### Monitoring
+<a id="monitoring"></a>
+### Monitoring { #monitoring }
 * With EasyQueue topic monitoring, you can view a topic's inbound/outbound byte rate, message count, lag by consumer group, and overall data size metrics.
 
 | Metric | Description |

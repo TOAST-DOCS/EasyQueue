@@ -1,17 +1,27 @@
+<!-- pre-align:aligned sig=4a5bf480c6ef -->
+
 # EasyQueue API v1.0 Guide
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 Guide**
 
-## EasyQueue API Common Information
+<a id="section-1"></a>
+## EasyQueue API v1.0 Guide { #section-1 }
 
-### Domain
+<!-- TODO: translate body -->
+
+<a id="easyqueue-api-common-information"></a>
+## EasyQueue API Common Information { #easyqueue-api-common-information }
+
+<a id="domain"></a>
+### Domain { #domain }
 
 | Region        | Domain                                         |
 |-----------|-----------------------------------------------|
 | Korea (Pangyo) Region | https://kr1-easyqueue.api.nhncloudservice.com |
 | Korea (Pyeongchon) region | https://kr2-easyqueue.api.nhncloudservice.com |
 
-### Authentication and Authorization
+<a id="authentication-and-authorization"></a>
+### Authentication and Authorization { #authentication-and-authorization }
 
 EasyQueue uses an opaque User Access Key token for authentication/authorization when making API calls.
 A User Access Key token is a temporary access token of the Bearer type that is issued based on a User Access Key.
@@ -29,8 +39,10 @@ Depending on your project member role, the APIs you can call are limited. You ca
 * EasyQueue VIEWER permission only allows you to view information.
 * EasyQueue CLIENT permission only enables the feature to send/receive messages and includes EasyQueue VIEWER permission.
 
-### Request Common Information
+<a id="request-common-information"></a>
+### Request Common Information { #request-common-information }
 
+<a id="request-common-information-path-parameter"></a>
 #### Path Parameter
 
 All APIs must specify the appkey as a path parameter.
@@ -41,7 +53,8 @@ e.g. /v1.0/appkeys/{appKey}/
 | --- | --- |
 | appKey | Appkey issued from the console |
 
-### Response Common Information
+<a id="response-common-information"></a>
+### Response Common Information { #response-common-information }
 
 The service responds with **200 OK** to all API requests. For detailed response results, refer to the header of the response body as in the following example.
 
@@ -84,12 +97,15 @@ The service responds with **200 OK** to all API requests. For detailed response 
 | header.resultMessage | String  | Result message |
 
 
-## Topic API
+<a id="topic-api"></a>
+## Topic API { #topic-api }
 
-### View a Topic List
+<a id="view-a-topic-list"></a>
+### View a Topic List { #view-a-topic-list }
 
 View a topic list.
 
+<a id="view-a-topic-list-request"></a>
 #### Request
 
 **[URI]**
@@ -109,6 +125,7 @@ View a topic list.
 | page | Integer | Min. 1 | Optional | 1 | Page No. |
 | limit | Integer | Min. 1, Max. 3,000 | Optional | 50 | Number of items per page |
 
+<a id="view-a-topic-list-response"></a>
 #### Response
  
 **[Response Body]**
@@ -161,10 +178,12 @@ View a topic list.
 | topicList[0].updatedAt | DateTime | Topic updated at (read-only) |
 | topicList[0].topicStatus | String | Topic status (ACTIVE, ERROR, WARNING, and DELETING) (read-only) |
 
-### Create a Topic
+<a id="create-a-topic"></a>
+### Create a Topic { #create-a-topic }
 
 Create a topic.
 
+<a id="create-a-topic-request"></a>
 #### Request
 
 **[URI]**
@@ -185,6 +204,7 @@ Create a topic.
 | topic.maxRetentionBytes | Long | Min. 1,073,741,824<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
  
+<a id="create-a-topic-1"></a>
 #### 응답
 
 **[Response Body]**
@@ -214,10 +234,12 @@ Create a topic.
 }
 ```
 
-### Single Topic Lookup
+<a id="single-topic-lookup"></a>
+### Single Topic Lookup { #single-topic-lookup }
 
 Retrieve details of a specific topic.
 
+<a id="single-topic-lookup-request"></a>
 #### Request
 
 **[URI]**
@@ -232,6 +254,7 @@ Retrieve details of a specific topic.
 |---|---|---|---|
 | topicName | String | Required | Topic name |
  
+<a id="single-topic-lookup-1"></a>
 #### 응답
 
 **[Response Body]**
@@ -261,10 +284,12 @@ Retrieve details of a specific topic.
 }
 ```
 
-### Edit a Topic
+<a id="edit-a-topic"></a>
+### Edit a Topic { #edit-a-topic }
 
 Edit a topic.
 
+<a id="edit-a-topic-request"></a>
 #### Request
 
 **[URI]**
@@ -290,6 +315,7 @@ Edit a topic.
 | topic.maxRetentionBytes | Long | Min. 1,073,741,824<br>Max. 26,843,545,600 | Required |  | Maximum log retention size per partition (bytes) |
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
 
+<a id="edit-a-topic-1"></a>
 #### 응답
 
 **[Response Body]**
@@ -319,10 +345,12 @@ Edit a topic.
 }
 ```
  
-### Delete a Topic
+<a id="delete-a-topic"></a>
+### Delete a Topic { #delete-a-topic }
 
 Delete a topic.
 
+<a id="delete-a-topic-request"></a>
 #### Request
 
 **[URI]**
@@ -337,6 +365,7 @@ Delete a topic.
 |---|---|---|---|
 | topicName | String | Required | Topic name |
 
+<a id="delete-a-topic-response"></a>
 #### Response
 
 **[Response Body]**
@@ -352,10 +381,12 @@ Delete a topic.
 ```
 
  
-### View a Partition List
+<a id="view-a-partition-list"></a>
+### View a Partition List { #view-a-partition-list }
 
 Retrieve a list of partitions for a topic.
 
+<a id="view-a-partition-list-request"></a>
 #### Request
 
 **[URI]**
@@ -370,6 +401,7 @@ Retrieve a list of partitions for a topic.
 |---|---|---|---|
 | topicName | String | Required | Topic name |
 
+<a id="view-a-partition-list-response"></a>
 #### Response
 
 **[Response Body]**
@@ -412,10 +444,12 @@ Retrieve a list of partitions for a topic.
 | partitionList[0].messageCount | Long | Partition-wide message count |
 
 
-### Retrieve Consumer Group List
+<a id="retrieve-consumer-group-list"></a>
+### Retrieve Consumer Group List { #retrieve-consumer-group-list }
 
 Retrieve a list of a topic's consumer groups.
 
+<a id="retrieve-consumer-group-list-request"></a>
 #### Request
 
 [URI]
@@ -430,6 +464,7 @@ Retrieve a list of a topic's consumer groups.
 |---|---|---|---|
 | topicName | String | Required | Topic name |
 
+<a id="retrieve-consumer-group-list-response"></a>
 #### Response
 
 **[Response Body]**
@@ -483,12 +518,15 @@ Retrieve a list of a topic's consumer groups.
 | consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
-## Statistics API
+<a id="statistics-api"></a>
+## Statistics API { #statistics-api }
 
-### Query Statistics
+<a id="query-statistics"></a>
+### Query Statistics { #query-statistics }
 
 View Kafka-related statistics.
 
+<a id="query-statistics-request"></a>
 #### Request
 
 **[URI]**
@@ -506,6 +544,7 @@ View Kafka-related statistics.
 | startDateTime | DateTime | ISO 8601 format, <br>Within 90 days | Required |  | Search start time (e.g., 2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601 format, <br>Search period: Min. 60 seconds, Max. 30 days | Required |  | Search end time (e.g., 2023-10-27T20:30:00+09:00) |
 
+<a id="query-statistics-response"></a>
 #### Response
 
 **[Response Body]**

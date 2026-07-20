@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=aaa09042e137 -->
+
 # EasyQueue概要
 
 **Data & Analytics > EasyQueue > 概要**
@@ -6,34 +8,46 @@ NHN Cloud EasyQueueは、別途のインフラ構築や複雑なクラスター�
 ユーザーはKafkaトピックを通じて、アプリケーション間でデータを非同期的に発行及びサブスクライブし、柔軟なデータパイプラインを簡単に構成できます。
 また、メッセージはクラスター内に分散保存及び多重複製され、障害時でもデータ損失を防止し、受信アプリケーションが一時中断した場合でもキュー(queue)に保管されたメッセージを通じて安定した処理を保証します。
 
-## サービスへのアクセス経路
+<a id="section-1"></a>
+## EasyQueueの概要 { #section-1 }
+
+<!-- TODO: translate body -->
+
+<a id="service-access-path"></a>
+## サービスへのアクセス経路 { #service-access-path }
 
 NHN Cloudコンソールで**Data & Analytics > EasyQueue**を選択して、サービスにアクセスできます。
 
-## 主な機能
+<a id="main-features"></a>
+## 主な機能 { #main-features }
 
-### トピックの作成とライフサイクル管理
+<a id="topic-creation-and-lifecycle-management"></a>
+### トピックの作成とライフサイクル管理 { #topic-creation-and-lifecycle-management }
 
 Webコンソールを通じて、複雑なコマンドや設定ファイルなしで、クリックのみで簡単にトピックを作成及び削除できます。
 データの保管周期や最大メッセージサイズなど、トピックごとの詳細なポリシーをサービス要件に合わせて柔軟に設定できます。
 パーティション数を調整することで、トラフィック規模に応じた処理パフォーマンスを最適化できます。
 
-### モニタリングダッシュボード
+<a id="monitoring-dashboard"></a>
+### モニタリングダッシュボード { #monitoring-dashboard }
 
 トピック別のデータの流入量、メッセージ数などの指標を確認できます。
 
-### メッセージ送受信テスト
+<a id="message-sendreceive-test"></a>
+### メッセージ送受信テスト { #message-sendreceive-test }
 
 別途のクライアントアプリケーションやコードを作成しなくても、コンソール内で直接テストメッセージを発行できます。
 特定のトピックに積載されたメッセージを照会して確認できます。
 初期連携段階の通信状態を点検したり、データフォーマットを検証するデバッグツールとして活用できます。
 
-### コンシューマーグループのモニタリング
+<a id="consumer-group-monitoring"></a>
+### コンシューマーグループのモニタリング { #consumer-group-monitoring }
 
 コンシューマーグループとグループ別のコンシューマー一覧を確認できます。
 コンシューマーグループの処理状態を一目で確認し、Lagの数値を確認することで、処理パフォーマンスを迅速に把握できます。
 
-## EasyQueueの動作方式
+<a id="how-easyqueue-works"></a>
+## EasyQueueの動作方式 { #how-easyqueue-works }
 
 ![[図1] EasyQueueの動作方式](http://static.toastoven.net/prod_easyqueue/15_data&analytics_easyqueue_img_jp.png) 
 
@@ -41,7 +55,8 @@ Webコンソールを通じて、複雑なコマンドや設定ファイルな�
 ➋ メッセージキューイング：受信したメッセージはEasyQueueのクラスター内に分散保存され、大量のトラフィック流入時にも損失なく保管されます。
 3. メッセージ購読：コンシューマーがキューに保存されたメッセージを取得し、ビジネスロジックに合わせてデータを処理します。
 
-## サービス用語
+<a id="service-terms"></a>
+## サービス用語 { #service-terms }
 
 | 用語 | 説明 |
 | --- | --- |
@@ -53,7 +68,8 @@ Webコンソールを通じて、複雑なコマンドや設定ファイルな�
 | コンシューマー | 特定のトピックをサブスクライブし、メッセージを受信して消費する主体 |
 | コンシューマーグループ | 同じトピックをサブスクライブする複数の消費者で構成されるグループ |
 
-## 主な目次
+<a id="table-of-contents"></a>
+## 主な目次 { #table-of-contents }
 
 * [コンソール使用ガイド](./console-guide/)
 * [APIガイド](./public-api/)

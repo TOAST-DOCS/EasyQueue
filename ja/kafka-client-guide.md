@@ -1,12 +1,17 @@
-## Kafkaクライアントガイド
+<!-- pre-align:aligned sig=e1be27f6c2db -->
+
+<a id="kafka-client-guide"></a>
+## Kafkaクライアントガイド { #kafka-client-guide }
 
 **Data & Analytics > EasyQueue > Kafkaクライアントガイド**
 
 EasyQueueサービスでKafkaクライアントを使用して、メッセージを送受信する方法を説明します。
 
-## 事前準備
+<a id="prerequisites"></a>
+## 事前準備 { #prerequisites }
 
-### 認証情報の確認
+<a id="verify-credentials"></a>
+### 認証情報の確認 { #verify-credentials }
 
 Kafkaクライアントを使用してEasyQueueサービスでメッセージを送受信するには、NHN Cloudのユーザー認証情報が必要です。認証情報はSASL/OAUTHBEARER方式で使用されます。
 
@@ -22,11 +27,13 @@ Kafkaクライアントを使用してEasyQueueサービスでメッセージを
 
 詳細は[パブリックAPI > API認証方式 > User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token/)を参照してください。
 
-### 認可情報の確認
+<a id="check-the-authorization-information"></a>
+### 認可情報の確認 { #check-the-authorization-information }
 
 Kafkaクライアントを使用してメッセージを送受信するには、ユーザーに**EasyQueue CLIENT**が含まれる権限が必要です。
 
-### 接続情報の確認
+<a id="check-the-connection-information"></a>
+### 接続情報の確認 { #check-the-connection-information }
 
 EasyQueueコンソールで以下の情報を確認します。
 
@@ -39,7 +46,8 @@ EasyQueueコンソールで以下の情報を確認します。
 !!! tip "参考：Consumer Group規則"
     Consumer Group IDはコンソールで別途提供されず、{APP_KEY}.{GROUP_NAME}の形式で指定する必要があります。Appkeyで始まらないConsumer Group IDは使用できません。
 
-### SASL/OAUTHBEARER設定
+<a id="configure-sasloauthbearer"></a>
+### SASL/OAUTHBEARER設定 { #configure-sasloauthbearer }
 
 EasyQueueはSASL/OAUTHBEARER認証方式を使用します。Kafkaクライアントで以下の設定が必要です。
 
@@ -55,9 +63,11 @@ EasyQueueはSASL/OAUTHBEARER認証方式を使用します。Kafkaクライア�
 !!! danger "注意"
     OAuthトークンは、User Access Keyで設定したトークンの有効時間が経過すると期限切れになります。長時間実行されるプロデューサー/コンシューマーは、トークンの自動更新設定が必須であり、設定しない場合はトークンの期限切れ時に認証エラーで接続が切断されます。
 
-## 言語別クライアント例
+<a id="client-examples-by-language"></a>
+## 言語別クライアント例 { #client-examples-by-language }
 
-### Java
+<a id="java"></a>
+### Java { #java }
 
 <details>
 <summary><strong>依存関係の設定</strong></summary>
@@ -248,7 +258,8 @@ public class EasyQueueConsumer {
 
 </details>
 
-### Python
+<a id="python"></a>
+### Python { #python }
 
 <details>
 <summary><strong>依存関係のインストール</strong></summary>
@@ -361,7 +372,8 @@ finally:
 
 </details>
 
-### JavaScript(Node.js)
+<a id="javascriptnodejs"></a>
+### JavaScript(Node.js) { #javascriptnodejs }
 
 <details>
 <summary><strong>依存関係のインストール</strong></summary>
@@ -497,7 +509,8 @@ run();
 
 </details>
 
-### Go
+<a id="go"></a>
+### Go { #go }
 
 <details>
 <summary><strong>依存関係のインストール</strong></summary>
@@ -689,11 +702,13 @@ func main() {
 
 </details>
 
-## トランザクションのサポート
+<a id="transaction-support"></a>
+## トランザクションのサポート { #transaction-support }
 Kafkaトランザクションは、複数のメッセージを1つのまとまりとして処理し、全て成功するか、全て失敗することを保証する機能です。
 トランザクションがコミットされるまでコンシューマーは該当メッセージを読み取れないため、不完全なデータが処理される状況を防ぐことができます。
 
-### プロデューサー設定
+<a id="producer-settings"></a>
+### プロデューサー設定 { #producer-settings }
 
 | 設定項目 | 説明                                               |
 |-----------|--------------------------------------------------|
@@ -708,7 +723,8 @@ Kafkaトランザクションは、複数のメッセージを1つのまとま�
 設定した時間内にcommitまたはabortを完了しない場合、ブローカーが該当のトランザクションを自動的にabort処理します。
 
 
-### コンシューマー設定
+<a id="consumer-settings"></a>
+### コンシューマー設定 { #consumer-settings }
 
 | 設定項目 | 説明                                                      |
 |-----------|---------------------------------------------------------|
@@ -716,105 +732,154 @@ Kafkaトランザクションは、複数のメッセージを1つのまとま�
 
 
 
-## トラブルシューティング
+<a id="troubleshooting"></a>
+## トラブルシューティング { #troubleshooting }
 
-### 接続エラー
+<a id="connection-errors"></a>
+### 接続エラー { #connection-errors }
 
+<a id="connection-errors-symptoms"></a>
 #### 症状
 Connection refused または Broker not available エラー
 
+<a id="connection-errors-solution"></a>
 #### 解決方法
 - Bootstrap Serversのアドレスが正しいか確認します。
 - ネットワークのファイアウォールでブローカーのポート30000～30008が開いているか確認します。
 
-### 認証エラー
+<a id="authentication-errors"></a>
+### 認証エラー { #authentication-errors }
 
+<a id="authentication-errors-symptoms"></a>
 #### 症状
 Authentication failed または SASL authentication failed エラー
 
+<a id="authentication-errors-solution"></a>
 #### 解決方法
 - User Access KeyとSecret Access Keyが正しいか確認します。
 - Token Endpoint URLが正しいか確認します。
 - scopeの設定にAppkeyが正しく含まれているか確認します。
 - 認証情報に権限が付与されているか確認します。
 
-### SSLエラー
+<a id="ssl-errors"></a>
+### SSLエラー { #ssl-errors }
 
+<a id="ssl-errors-symptoms"></a>
 #### 症状
 SSL handshake failed または Certificate verification failed エラー
 
+<a id="ssl-errors-solution"></a>
 #### 解決方法
 - `security.protocol`が`SASL_SSL`に設定されているか確認します。
 
-### トピックアクセスエラー
+<a id="topic-access-errors"></a>
+### トピックアクセスエラー { #topic-access-errors }
 
+<a id="topic-access-errors-symptoms"></a>
 #### 症状
 Topic authorization failed または Unknown topic エラー
 
+<a id="topic-access-errors-solution"></a>
 #### 解決方法
 - トピック名が正しいか確認します(形式: {APP_KEY}.{TOPIC_NAME})。
 - 該当トピックに対するアクセス権限があるか確認します。
 - EasyQueueコンソールでトピックが作成されているか確認します。
 
-### コンシューマーグループエラー
+<a id="consumer-group-errors"></a>
+### コンシューマーグループエラー { #consumer-group-errors }
 
+<a id="consumer-group-errors-symptoms"></a>
 #### 症状
 Group authorization failed
 
+<a id="consumer-group-errors-solution"></a>
 #### 解決方法
 - Consumer Group IDが正しい形式か確認します(形式: {APP_KEY}.{GROUP_NAME})。
 - 該当コンシューマーグループに対するアクセス権限があるか確認します。
 
-### トランザクションのタイムアウトエラー
+<a id="transaction-timeout-error"></a>
+### トランザクションのタイムアウトエラー { #transaction-timeout-error }
 
+<a id="transaction-timeout-error-symptom"></a>
 #### 事象
 InvalidTxnTimeoutExceptionエラーが発生し、トランザクションを開始できない
 
+<a id="transaction-timeout-error-resolution"></a>
 #### 解決方法
 - `transaction.timeout.ms`の値が300,000ms(5分)を超過していないか確認します。
 - 値を300,000以下に設定します。
 
-### トランザクションID認可エラー
+<a id="transactional-id-permission-error"></a>
+### トランザクションID認可エラー { #transactional-id-permission-error }
 
+<a id="transactional-id-permission-error-symptom"></a>
 #### 事象
 TransactionalIdAuthorizationFailedエラーが発生し、トランザクションを開始できない
 
+<a id="transactional-id-permission-error-resolution"></a>
 #### 解決方法
 - `transactional.id`がAppkeyのプレフィックスで始まっているか確認します(形式: {APP_KEY}.{識別子})。
 - Appkeyのプレフィックスなしで設定した場合、ブローカーがリクエストを拒否します。
 
-### プロデューサーのフェンシング(Fencing)エラー
+<a id="producer-fencing-error"></a>
+### プロデューサーのフェンシング(Fencing)エラー { #producer-fencing-error }
 
+<a id="producer-fencing-error-symptom"></a>
 #### 事象
 ProducerFencedExceptionエラーが発生し、メッセージの送信またはcommitに失敗する
 
+<a id="producer-fencing-error-resolution"></a>
 #### 解決方法
 - 同一の`transactional.id`を使用する別のプロデューサーインスタンスが実行中であるか確認します。
 - プロデューサーインスタンスごとに固有の`transactional.id`を使用します。
 
-### 同時トランザクションの競合エラー
+<a id="concurrent-transaction-conflict-error"></a>
+### 同時トランザクションの競合エラー { #concurrent-transaction-conflict-error }
 
+<a id="concurrent-transaction-conflict-error-symptom"></a>
 #### 事象
 ConcurrentTransactionsExceptionエラーが発生し、新しいトランザクションを開始できない
 
+<a id="concurrent-transaction-conflict-error-resolution"></a>
 #### 解決方法
 - 以前のトランザクションのcommitまたはabortが完了した後に、次のトランザクションを開始します。
 - 同じ`transactional.id`で同時に複数のトランザクションを開くことはできません。
 
-### トランザクションメッセージが読み取れない
+<a id="transaction-messages-not-being-read"></a>
+### トランザクションメッセージが読み取れない { #transaction-messages-not-being-read }
 
+<a id="transaction-messages-not-being-read-symptom"></a>
 #### 事象
 プロデューサーでcommitしたメッセージがコンシューマーで読み取れない
 
+<a id="transaction-messages-not-being-read-resolution"></a>
 #### 解決方法
 - コンシューマーに`isolation.level=read_committed`が設定されているか確認します。
 
 
-### ブローカーのメンテナンス時のトランザクション遅延
+<a id="troubleshooting-1"></a>
+### メッセージのタイムスタンプエラー { #troubleshooting-1 }
 
+<!-- TODO: translate body -->
+
+<a id="troubleshooting-1-1"></a>
+#### 症状
+
+<!-- TODO: translate body -->
+
+<a id="troubleshooting-1-2"></a>
+#### 解決方法
+
+<!-- TODO: translate body -->
+
+<a id="transaction-delay-during-broker-maintenance"></a>
+### ブローカーのメンテナンス時のトランザクション遅延 { #transaction-delay-during-broker-maintenance }
+
+<a id="transaction-delay-during-broker-maintenance-symptom"></a>
 #### 事象
 ブローカーのメンテナンス中にCOORDINATOR_LOAD_IN_PROGRESSまたはCOORDINATOR_NOT_AVAILABLEエラーが一時的に発生し、トランザクションの開始が遅延する
 
+<a id="transaction-delay-during-broker-maintenance-resolution"></a>
 #### 解決方法
 - ブローカーのメンテナンス時に、一時的にトランザクションが遅延する場合があります。通常は数秒以内に自動で復旧します。
 - プロデューサークライアントに再試行設定(`retries`、`retry.backoff.ms`)がされているか確認します。

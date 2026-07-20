@@ -1,8 +1,16 @@
+<!-- pre-align:aligned sig=fc405e428fe3 -->
+
 # API Error Code
 
 **Data & Analytics > EasyQueue > API Error Code**
 
-## Error Code
+<a id="section-1"></a>
+## API Error Code { #section-1 }
+
+<!-- TODO: translate body -->
+
+<a id="error-code"></a>
+## Error Code { #error-code }
 
 | Error code | Error message | Description |
 | --- | --- | --- |
