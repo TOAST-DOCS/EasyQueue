@@ -1,4 +1,7 @@
-## EasyQueue 개요
+<!-- pre-align:aligned sig=154b1ec7fbd6 -->
+
+<a id="easyqueue-overview"></a>
+## EasyQueue 개요 { #easyqueue-overview }
 
 **Data & Analytics > EasyQueue > 개요**
 
@@ -6,34 +9,41 @@ NHN Cloud EasyQueue는 별도의 인프라 구축이나 복잡한 클러스터 �
 사용자는 Kafka 토픽을 통해 애플리케이션 간 데이터를 비동기적으로 발행 및 구독하며 유연한 데이터 파이프라인을 손쉽게 구성할 수 있습니다.
 또한 메시지는 클러스터 내에 분산 저장 및 다중 복제되어 장애 상황에서도 데이터 손실을 방지하며, 수신 애플리케이션이 일시 중단되더라도 큐(queue)에 보관된 메시지를 통해 안정적인 처리를 보장합니다.
 
-## 서비스 접근 경로
+<a id="service-access-path"></a>
+## 서비스 접근 경로 { #service-access-path }
 
 NHN Cloud 콘솔에서 **Data & Analytics > EasyQueue**를 선택하여 서비스에 접근할 수 있습니다.
 
-## 주요 기능
+<a id="main-features"></a>
+## 주요 기능 { #main-features }
 
-### 토픽 생성 및 수명주기 관리
+<a id="topic-creation-and-lifecycle-management"></a>
+### 토픽 생성 및 수명주기 관리 { #topic-creation-and-lifecycle-management }
 
 웹 콘솔을 통해 복잡한 명령어나 설정 파일 없이 클릭만으로 손쉽게 토픽을 생성하고 삭제할 수 있습니다.
 데이터의 보관 주기와 최대 메시지 크기 등 토픽별 세부 정책을 서비스 요건에 맞춰 유연하게 설정할 수 있습니다.
 파티션 수를 조정하여 트래픽 규모에 따른 처리 성능을 최적화할 수 있습니다.
 
-### 모니터링 대시보드
+<a id="monitoring-dashboard"></a>
+### 모니터링 대시보드 { #monitoring-dashboard }
 
 토픽별 데이터 유입량, 메시지 수 등의 지표를 확인할 수 있습니다.
 
-### 메시지 송수신 테스트
+<a id="message-sendreceive-test"></a>
+### 메시지 송수신 테스트 { #message-sendreceive-test }
 
 별도의 클라이언트 애플리케이션이나 코드를 작성하지 않아도, 콘솔 내에서 직접 테스트 메시지를 발행해 볼 수 있습니다.
 특정 토픽에 적재된 메시지를 조회하여 확인할 수 있습니다.
 초기 연동 단계의 통신 상태를 점검하거나 데이터 포맷을 검증하는 디버깅 도구로 활용 가능합니다.
 
-### 컨슈머 그룹 모니터링
+<a id="consumer-group-monitoring"></a>
+### 컨슈머 그룹 모니터링 { #consumer-group-monitoring }
 
 컨슈머 그룹과 그룹별 컨슈머 목록을 확인할 수 있습니다.
 컨슈머 그룹의 처리 상태를 한눈에 확인하고, Lag 수치를 확인하여 처리 성능을 빠르게 파악할 수 있습니다.
 
-## EasyQueue 동작 방식
+<a id="how-easyqueue-works"></a>
+## EasyQueue 동작 방식 { #how-easyqueue-works }
 
 ![[그림1] EasyQueue 동작 방식](http://static.toastoven.net/prod_easyqueue/15_data&analytics_easyqueue_img_kr.png)
 
@@ -41,7 +51,8 @@ NHN Cloud 콘솔에서 **Data & Analytics > EasyQueue**를 선택하여 서비�
 ➋ 메시지 큐잉: 수신된 메시지는 EasyQueue 클러스터 내에 분산 저장되어, 대량의 트래픽 유입 시에도 손실 없이 보관됩니다.
 ➌ 메시지 구독: 컨슈머가 큐에 저장된 메시지를 가져와 비즈니스 로직에 맞춰 데이터를 처리합니다.
 
-## 서비스 용어
+<a id="service-terms"></a>
+## 서비스 용어 { #service-terms }
 
 | 용어 | 설명 |
 | --- | --- |
@@ -53,7 +64,8 @@ NHN Cloud 콘솔에서 **Data & Analytics > EasyQueue**를 선택하여 서비�
 | 컨슈머 | 특정 토픽을 구독하여 메시지를 수신하여 소비하는 주체 |
 | 컨슈머 그룹 | 같은 토픽을 구독하는 복수 개의 소비자로 이루어진 그룹 |
 
-## 주요 목차
+<a id="table-of-contents"></a>
+## 주요 목차 { #table-of-contents }
 
 * [콘솔 사용 가이드](./console-guide/)
 * [API 가이드](./public-api/)

@@ -1,12 +1,17 @@
-## Kafka 클라이언트 가이드
+<!-- pre-align:aligned sig=fbd2c85fde15 -->
+
+<a id="kafka-client-guide"></a>
+## Kafka 클라이언트 가이드 { #kafka-client-guide }
 
 **Data & Analytics > EasyQueue > Kafka 클라이언트 가이드**
 
 EasyQueue 서비스에 Kafka 클라이언트를 사용하여 메시지를 송수신하는 방법을 설명합니다.
 
-## 사전 준비
+<a id="prerequisites"></a>
+## 사전 준비 { #prerequisites }
 
-### 인증 정보 확인
+<a id="verify-credentials"></a>
+### 인증 정보 확인 { #verify-credentials }
 
 Kafka 클라이언트를 사용하여 EasyQueue 서비스에서 메시지를 송수신하려면 NHN Cloud 사용자 인증 정보가 필요합니다. 인증 정보는 SASL/OAUTHBEARER 방식으로 사용됩니다.
 
@@ -22,11 +27,13 @@ Kafka 클라이언트를 사용하여 EasyQueue 서비스에서 메시지를 송
 
 자세한 내용은 [Public API 사용 가이드 > API 인증 방식 > User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token/)을 참고하세요.
 
-### 인가 정보 확인
+<a id="check-the-authorization-information"></a>
+### 인가 정보 확인 { #check-the-authorization-information }
 
 Kafka 클라이언트를 사용하여 메시지를 송수신하려면 사용자에게 **EasyQueue CLIENT**가 포함된 권한이 필요합니다.
 
-### 접속 정보 확인
+<a id="check-the-connection-information"></a>
+### 접속 정보 확인 { #check-the-connection-information }
 
 EasyQueue 콘솔에서 다음 정보를 확인합니다.
 
@@ -39,7 +46,8 @@ EasyQueue 콘솔에서 다음 정보를 확인합니다.
 !!! tip "알아두기: 컨슈머 그룹 규칙"
     컨슈머 그룹 ID는 콘솔에서 별도로 제공되지 않으며, {APP_KEY}.{GROUP_NAME} 형식으로 지정해야 합니다. 앱키로 시작하지 않는 컨슈머 그룹 ID는 사용할 수 없습니다.
 
-### SASL/OAUTHBEARER 설정
+<a id="configure-sasloauthbearer"></a>
+### SASL/OAUTHBEARER 설정 { #configure-sasloauthbearer }
 
 EasyQueue는 SASL/OAUTHBEARER 인증 방식을 사용합니다. Kafka 클라이언트에서 다음 설정이 필요합니다.
 
@@ -55,9 +63,11 @@ EasyQueue는 SASL/OAUTHBEARER 인증 방식을 사용합니다. Kafka 클라이�
 !!! danger "주의"
     OAuth 토큰은 User Access Key에서 설정한 토큰 유효 시간이 지나면 만료됩니다. 장시간 실행되는 프로듀서/컨슈머는 토큰 자동 갱신 설정이 필수이며, 설정하지 않으면 토큰 만료 시 인증 오류로 연결이 끊어집니다.
 
-## 언어별 클라이언트 예제
+<a id="client-examples-by-language"></a>
+## 언어별 클라이언트 예제 { #client-examples-by-language }
 
-### Java
+<a id="java"></a>
+### Java { #java }
 
 <details>
 <summary><strong>의존성 설정</strong></summary>
@@ -248,7 +258,8 @@ public class EasyQueueConsumer {
 
 </details>
 
-### Python
+<a id="python"></a>
+### Python { #python }
 
 <details>
 <summary><strong>의존성 설치</strong></summary>
@@ -361,7 +372,8 @@ finally:
 
 </details>
 
-### JavaScript(Node.js)
+<a id="javascriptnodejs"></a>
+### JavaScript(Node.js) { #javascriptnodejs }
 
 <details>
 <summary><strong>의존성 설치</strong></summary>
@@ -497,7 +509,8 @@ run();
 
 </details>
 
-### Go
+<a id="go"></a>
+### Go { #go }
 
 <details>
 <summary><strong>의존성 설치</strong></summary>
@@ -689,12 +702,14 @@ func main() {
 
 </details>
 
-## 트랜잭션 지원
+<a id="transaction-support"></a>
+## 트랜잭션 지원 { #transaction-support }
 
 Kafka 트랜잭션은 여러 메시지를 하나의 묶음으로 처리하여, 모두 성공하거나 모두 실패하도록 보장하는 기능입니다.
 트랜잭션이 커밋되기 전까지 컨슈머는 해당 메시지를 읽을 수 없기 때문에, 불완전한 데이터가 처리되는 상황을 방지할 수 있습니다.
 
-### 프로듀서 설정
+<a id="producer-settings"></a>
+### 프로듀서 설정 { #producer-settings }
 
 | 설정 항목 | 설명                                               |
 |-----------|--------------------------------------------------|
@@ -709,7 +724,8 @@ Kafka 트랜잭션은 여러 메시지를 하나의 묶음으로 처리하여, �
     설정한 시간 내에 commit 또는 abort를 완료하지 않으면 브로커가 해당 트랜잭션을 자동으로 abort 처리합니다.
 
 
-### 컨슈머 설정
+<a id="consumer-settings"></a>
+### 컨슈머 설정 { #consumer-settings }
 
 | 설정 항목 | 설명                                                      |
 |-----------|---------------------------------------------------------|
@@ -717,25 +733,32 @@ Kafka 트랜잭션은 여러 메시지를 하나의 묶음으로 처리하여, �
 
 
 
-## 문제 해결
+<a id="troubleshooting"></a>
+## 문제 해결 { #troubleshooting }
 
-### 연결 오류
+<a id="connection-errors"></a>
+### 연결 오류 { #connection-errors }
 
+<a id="connection-errors-symptoms"></a>
 #### 증상
 
 Connection refused 또는 Broker not available 오류
 
+<a id="connection-errors-solution"></a>
 #### 해결 방법
 
 - Bootstrap Servers 주소가 올바른지 확인합니다.
 - 네트워크 방화벽에서 브로커 포트 30000~30008이 열려 있는지 확인합니다.
 
-### 인증 오류
+<a id="authentication-errors"></a>
+### 인증 오류 { #authentication-errors }
 
+<a id="authentication-errors-symptoms"></a>
 #### 증상
 
 Authentication failed 또는 SASL authentication failed 오류
 
+<a id="authentication-errors-solution"></a>
 #### 해결 방법
 
 - User Access Key와 Secret Access Key가 올바른지 확인합니다.
@@ -743,96 +766,122 @@ Authentication failed 또는 SASL authentication failed 오류
 - scope 설정에 앱키가 올바르게 포함되어 있는지 확인합니다.
 - 인증 정보에 권한이 부여되어 있는지 확인합니다.
 
-### SSL 오류
+<a id="ssl-errors"></a>
+### SSL 오류 { #ssl-errors }
 
+<a id="ssl-errors-symptoms"></a>
 #### 증상
 
 SSL handshake failed 또는 Certificate verification failed 오류
 
+<a id="ssl-errors-solution"></a>
 #### 해결 방법
 
 - `security.protocol`이 `SASL_SSL`로 설정되어 있는지 확인합니다.
 
-### 토픽 접근 오류
+<a id="topic-access-errors"></a>
+### 토픽 접근 오류 { #topic-access-errors }
 
+<a id="topic-access-errors-symptoms"></a>
 #### 증상
 
 Topic authorization failed 또는 Unknown topic 오류
 
+<a id="topic-access-errors-solution"></a>
 #### 해결 방법
 
 - 토픽 이름이 올바른지 확인합니다(형식: {APP_KEY}.{TOPIC_NAME}).
 - 해당 토픽에 대한 접근 권한이 있는지 확인합니다.
 - EasyQueue 콘솔에서 토픽이 생성되어 있는지 확인합니다.
 
-### 컨슈머 그룹 오류
+<a id="consumer-group-errors"></a>
+### 컨슈머 그룹 오류 { #consumer-group-errors }
 
+<a id="consumer-group-errors-symptoms"></a>
 #### 증상
 
 Group authorization failed
 
+<a id="consumer-group-errors-solution"></a>
 #### 해결 방법
 
 - 컨슈머 그룹 ID가 올바른 형식인지 확인합니다(형식: {APP_KEY}.{GROUP_NAME}).
 - 해당 컨슈머 그룹에 대한 접근 권한이 있는지 확인합니다.
 
-### 트랜잭션 타임아웃 오류
+<a id="transaction-timeout-error"></a>
+### 트랜잭션 타임아웃 오류 { #transaction-timeout-error }
 
+<a id="transaction-timeout-error-symptom"></a>
 #### 증상
 
 InvalidTxnTimeoutException 오류가 발생하며 트랜잭션을 시작할 수 없음
 
+<a id="transaction-timeout-error-resolution"></a>
 #### 해결 방법
 
 - `transaction.timeout.ms` 값이 300,000ms(5분)을 초과하지 않는지 확인합니다.
 - 값을 300,000 이하로 설정합니다.
 
-### 트랜잭션 ID 인가 오류
+<a id="transactional-id-permission-error"></a>
+### 트랜잭션 ID 인가 오류 { #transactional-id-permission-error }
 
+<a id="transactional-id-permission-error-symptom"></a>
 #### 증상
 
 TransactionalIdAuthorizationFailed 오류가 발생하며 트랜잭션을 시작할 수 없음
 
+<a id="transactional-id-permission-error-resolution"></a>
 #### 해결 방법
 
 - `transactional.id`가 앱키 접두어로 시작하는지 확인합니다(형식: {APP_KEY}.{식별자}).
 - 앱키 접두어 없이 설정하면 브로커가 요청을 거부합니다.
 
-### 프로듀서 펜싱(Fencing) 오류
+<a id="producer-fencing-error"></a>
+### 프로듀서 펜싱(Fencing) 오류 { #producer-fencing-error }
 
+<a id="producer-fencing-error-symptom"></a>
 #### 증상
 
 ProducerFencedException 오류가 발생하며 메시지 전송 또는 commit이 실패함
 
+<a id="producer-fencing-error-resolution"></a>
 #### 해결 방법
 
 - 동일한 `transactional.id`를 사용하는 다른 프로듀서 인스턴스가 실행 중인지 확인합니다.
 - 프로듀서 인스턴스별로 고유한 `transactional.id`를 사용합니다.
 
-### 동시 트랜잭션 충돌 오류
+<a id="concurrent-transaction-conflict-error"></a>
+### 동시 트랜잭션 충돌 오류 { #concurrent-transaction-conflict-error }
 
+<a id="concurrent-transaction-conflict-error-symptom"></a>
 #### 증상
 
 ConcurrentTransactionsException 오류가 발생하며 새 트랜잭션을 시작할 수 없음
 
+<a id="concurrent-transaction-conflict-error-resolution"></a>
 #### 해결 방법
 
 - 이전 트랜잭션의 commit 또는 abort가 완료된 후 다음 트랜잭션을 시작합니다.
 - 같은 `transactional.id`로 동시에 여러 트랜잭션을 열 수 없습니다.
 
-### 트랜잭션 메시지가 읽히지 않음
+<a id="transaction-messages-not-being-read"></a>
+### 트랜잭션 메시지가 읽히지 않음 { #transaction-messages-not-being-read }
 
+<a id="transaction-messages-not-being-read-symptom"></a>
 #### 증상
 
 프로듀서에서 commit한 메시지가 컨슈머에서 읽히지 않음
 
+<a id="transaction-messages-not-being-read-resolution"></a>
 #### 해결 방법
 
 - 컨슈머에 `isolation.level=read_committed`가 설정되어 있는지 확인합니다.
 
 
-### 메시지 타임스탬프 오류
+<a id="message-timestamp-error"></a>
+### 메시지 타임스탬프 오류 { #message-timestamp-error }
 
+<a id="message-timestamp-error-symptoms"></a>
 #### 증상
 
 InvalidTimestampException 오류가 발생하며 메시지 전송에 실패함
@@ -841,17 +890,21 @@ InvalidTimestampException 오류가 발생하며 메시지 전송에 실패함
 Failed to send message: org.apache.kafka.common.errors.InvalidTimestampException: Timestamp 1776230740705 of message with offset 0 is out of range. The timestamp should be within [-9223370260710424559, 1776147951248]
 ```
 
+<a id="message-timestamp-error-solution"></a>
 #### 해결 방법
 
 - 브로커는 1시간 이상 미래인 타임스탬프의 메시지를 거부합니다. 메시지 타임스탬프를 직접 지정하고 있다면 값을 확인합니다.
 - 프로듀서 서버의 시스템 시간을 확인합니다(Timezone, NTP 동기화 등).
 
-### 브로커 점검 시 트랜잭션 지연
+<a id="transaction-delay-during-broker-maintenance"></a>
+### 브로커 점검 시 트랜잭션 지연 { #transaction-delay-during-broker-maintenance }
 
+<a id="transaction-delay-during-broker-maintenance-symptom"></a>
 #### 증상
 
 브로커 점검 중 COORDINATOR_LOAD_IN_PROGRESS 또는 COORDINATOR_NOT_AVAILABLE 오류가 일시적으로 발생하며 트랜잭션 시작이 지연됨
 
+<a id="transaction-delay-during-broker-maintenance-resolution"></a>
 #### 해결 방법
 
 - 브로커 점검 시 일시적으로 트랜잭션이 지연될 수 있습니다. 보통 수 초 내에 자동으로 복구됩니다.
