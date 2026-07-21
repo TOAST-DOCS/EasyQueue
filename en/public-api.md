@@ -205,7 +205,7 @@ Create a topic.
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
  
 <a id="create-a-topic-1"></a>
-#### 응답
+#### Response
 
 **[Response Body]**
 
@@ -255,7 +255,7 @@ Retrieve details of a specific topic.
 | topicName | String | Required | Topic name |
  
 <a id="single-topic-lookup-1"></a>
-#### 응답
+#### Response
 
 **[Response Body]**
 
@@ -316,7 +316,7 @@ Edit a topic.
 | topic.maxMessageBytes | Integer | Min. 1,024<br>Max. 262,144 | Required |  | Maximum size of topic messages (bytes) |
 
 <a id="edit-a-topic-1"></a>
-#### 응답
+#### Response
 
 **[Response Body]**
 
