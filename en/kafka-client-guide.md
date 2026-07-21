@@ -1,12 +1,17 @@
-## Kafka Client Guide
+<!-- pre-align:aligned sig=fbd2c85fde15 -->
+
+<a id="kafka-client-guide"></a>
+## Kafka Client Guide { #kafka-client-guide }
 
 **Data & Analytics > EasyQueue > Kafka Client Guide**
 
 This guide explains how to use the Kafka client to send and receive messages to and from the EasyQueue service.
 
-## Prerequisites
+<a id="prerequisites"></a>
+## Prerequisites { #prerequisites }
 
-### Verify Credentials
+<a id="verify-credentials"></a>
+### Verify Credentials { #verify-credentials }
 
 NHN Cloud user credentials are required to send and receive messages from the EasyQueue service using the Kafka client. The credential is used in the SASL/OAUTHBEARER method.
 
@@ -22,11 +27,13 @@ NHN Cloud user credentials are required to send and receive messages from the Ea
 
 For more information, see [NHN Cloud > Public API > API Authentication Methods > User Access Key Token](/nhncloud/en/public-api/user-access-key-token/).
 
-### Check the Authorization Information
+<a id="check-the-authorization-information"></a>
+### Check the Authorization Information { #check-the-authorization-information }
 
 To send and receive messages using the Kafka client, users need permissions that include **EasyQueue CLIENT**.
 
-### Check the Connection Information
+<a id="check-the-connection-information"></a>
+### Check the Connection Information { #check-the-connection-information }
 
 In the EasyQueue console, view the following information:
 
@@ -39,7 +46,8 @@ In the EasyQueue console, view the following information:
 !!! tip "Note: Consumer Group Rules"
 Consumer Group IDs are not provided separately in the console and must be specified in the format: {APP_KEY}.{GROUP_NAME}. Any Consumer Group ID that does not start with the AppKey cannot be used.
 
-### Configure SASL/OAUTHBEARER
+<a id="configure-sasloauthbearer"></a>
+### Configure SASL/OAUTHBEARER { #configure-sasloauthbearer }
 
 EasyQueue uses the SASL/OAUTHBEARER authentication method. The following settings are required on the Kafka client:
 
@@ -55,9 +63,11 @@ EasyQueue uses the SASL/OAUTHBEARER authentication method. The following setting
 !!! danger "Caution"
 OAuth tokens expire based on the token lifetime configured in the User Access Key settings. For long-running producers and consumers, auto-refresh must be enabled. Otherwise, the connection will be terminated due to authentication errors upon token expiration.
 
-## Client Examples by Language
+<a id="client-examples-by-language"></a>
+## Client Examples by Language { #client-examples-by-language }
 
-### Java
+<a id="java"></a>
+### Java { #java }
 
 <details>
 <summary><strong>dependency configuration</strong></summary>
@@ -248,7 +258,8 @@ public class EasyQueueConsumer {
 
 </details>
 
-### Python
+<a id="python"></a>
+### Python { #python }
 
 <details>
 <summary><strong>Install dependencies</strong></summary>
@@ -361,7 +372,8 @@ finally:
 
 </details>
 
-### JavaScript(Node.js)
+<a id="javascriptnodejs"></a>
+### JavaScript(Node.js) { #javascriptnodejs }
 
 <details>
 <summary><strong>Install dependencies</strong></summary>
@@ -497,7 +509,8 @@ run();
 
 </details>
 
-### Go
+<a id="go"></a>
+### Go { #go }
 
 <details>
 <summary><strong>Install dependencies</strong></summary>
@@ -689,11 +702,13 @@ func main() {
 
 </details>
 
-## Transaction Support
+<a id="transaction-support"></a>
+## Transaction Support { #transaction-support }
 Kafka transactions process multiple messages as a single unit, ensuring that all messages either succeed or fail together.
 Since consumers cannot read messages until a transaction is committed, incomplete data processing is prevented.
 
-### Producer Settings
+<a id="producer-settings"></a>
+### Producer Settings { #producer-settings }
 
 | Setting | Description |
 |-----------|--------------------------------------------------|
@@ -708,7 +723,8 @@ Since consumers cannot read messages until a transaction is committed, incomplet
     If a commit or abort is not completed within the configured time, the broker will automatically abort the transaction.
 
 
-### Consumer Settings
+<a id="consumer-settings"></a>
+### Consumer Settings { #consumer-settings }
 
 | Setting | Description |
 |-----------|---------------------------------------------------------|
@@ -716,105 +732,154 @@ Since consumers cannot read messages until a transaction is committed, incomplet
 
 
 
-## Troubleshooting
+<a id="troubleshooting"></a>
+## Troubleshooting { #troubleshooting }
 
-### Connection Errors
+<a id="connection-errors"></a>
+### Connection Errors { #connection-errors }
 
+<a id="connection-errors-symptoms"></a>
 #### Symptoms
 
 
+<a id="connection-errors-solution"></a>
 #### Solution
 - Verify that the Bootstrap Servers address is correct.
 - Ensure that broker ports 30000 through 30008 are open on your network firewall.
 
-### Authentication Errors
+<a id="authentication-errors"></a>
+### Authentication Errors { #authentication-errors }
 
+<a id="authentication-errors-symptoms"></a>
 #### Symptoms
 
 
+<a id="authentication-errors-solution"></a>
 #### Solution
 - Verify that the User Access Key and Secret Access Key are correct.
 - Verify that the Token Endpoint URL is correct.
 - Verify that the app key is included correctly in the scope settings.
 - Verify that the credentials are authorized.
 
-### SSL Errors
+<a id="ssl-errors"></a>
+### SSL Errors { #ssl-errors }
 
+<a id="ssl-errors-symptoms"></a>
 #### Symptoms
 
 
+<a id="ssl-errors-solution"></a>
 #### Solution
 Verify that security.protocol is set to SASL_SSL.
 
-### Topic Access Errors
+<a id="topic-access-errors"></a>
+### Topic Access Errors { #topic-access-errors }
 
+<a id="topic-access-errors-symptoms"></a>
 #### Symptoms
 
 
+<a id="topic-access-errors-solution"></a>
 #### Solution
 - Verify that the topic name is correct (format: {APP_KEY}.{TOPIC_NAME}).
 - Verify that you have access to the topic.
 - In the EasyQueue console, verify that the topic has been created.
 
-### Consumer Group Errors
+<a id="consumer-group-errors"></a>
+### Consumer Group Errors { #consumer-group-errors }
 
+<a id="consumer-group-errors-symptoms"></a>
 #### Symptoms
 
 
+<a id="consumer-group-errors-solution"></a>
 #### Solution
 - Verify that the consumer group ID is in the correct format (format: {APP_KEY}.{GROUP_NAME}).
 - Verify that you have access to the consumer group.
 
-### Transaction Timeout Error
+<a id="transaction-timeout-error"></a>
+### Transaction Timeout Error { #transaction-timeout-error }
 
+<a id="transaction-timeout-error-symptom"></a>
 #### Symptom
 An InvalidTxnTimeoutException error occurs and the transaction cannot be started.
 
+<a id="transaction-timeout-error-resolution"></a>
 #### Resolution
 - Verify that the `transaction.timeout.ms` value does not exceed 300,000 ms (5 minutes).
 - Set the value to 300,000 or less.
 
-### Transactional ID Permission Error
+<a id="transactional-id-permission-error"></a>
+### Transactional ID Permission Error { #transactional-id-permission-error }
 
+<a id="transactional-id-permission-error-symptom"></a>
 #### Symptom
 A TransactionalIdAuthorizationFailed error occurs and the transaction cannot be started.
 
+<a id="transactional-id-permission-error-resolution"></a>
 #### Resolution
 - Verify that `transactional.id` starts with the appkey prefix (format: {APP_KEY}.{identifier}).
 - If configured without the appkey prefix, the broker will reject the request.
 
-### Producer Fencing Error
+<a id="producer-fencing-error"></a>
+### Producer Fencing Error { #producer-fencing-error }
 
+<a id="producer-fencing-error-symptom"></a>
 #### Symptom
 A ProducerFencedException error occurs and message transmission or commit fails.
 
+<a id="producer-fencing-error-resolution"></a>
 #### Resolution
 - Check whether another producer instance using the same `transactional.id` is running.
 - Use a unique `transactional.id` for each producer instance.
 
-### Concurrent Transaction Conflict Error
+<a id="concurrent-transaction-conflict-error"></a>
+### Concurrent Transaction Conflict Error { #concurrent-transaction-conflict-error }
 
+<a id="concurrent-transaction-conflict-error-symptom"></a>
 #### Symptom
 A ConcurrentTransactionsException error occurs and a new transaction cannot be started.
 
+<a id="concurrent-transaction-conflict-error-resolution"></a>
 #### Resolution
 - Start the next transaction only after the commit or abort of the previous transaction is complete.
 - Multiple transactions cannot be opened simultaneously with the same `transactional.id`.
 
-### Transaction Messages Not Being Read
+<a id="transaction-messages-not-being-read"></a>
+### Transaction Messages Not Being Read { #transaction-messages-not-being-read }
 
+<a id="transaction-messages-not-being-read-symptom"></a>
 #### Symptom
 Messages committed by the producer are not being read by the consumer.
 
+<a id="transaction-messages-not-being-read-resolution"></a>
 #### Resolution
 - Verify that `isolation.level=read_committed` is configured on the consumer.
 
 
-### Transaction Delay During Broker Maintenance
+<a id="message-timestamp-error"></a>
+### Message timestamp error { #message-timestamp-error }
 
+<!-- TODO: translate body -->
+
+<a id="message-timestamp-error-symptoms"></a>
+#### Symptoms
+
+<!-- TODO: translate body -->
+
+<a id="message-timestamp-error-solution"></a>
+#### Solution
+
+<!-- TODO: translate body -->
+
+<a id="transaction-delay-during-broker-maintenance"></a>
+### Transaction Delay During Broker Maintenance { #transaction-delay-during-broker-maintenance }
+
+<a id="transaction-delay-during-broker-maintenance-symptom"></a>
 #### Symptom
 COORDINATOR_LOAD_IN_PROGRESS or COORDINATOR_NOT_AVAILABLE errors occur temporarily during broker maintenance, causing a delay in starting transactions.
 
+<a id="transaction-delay-during-broker-maintenance-resolution"></a>
 #### Resolution
 - Transactions may be temporarily delayed during broker maintenance. Recovery usually occurs automatically within a few seconds.
 - Verify that retry settings (`retries`, `retry.backoff.ms`) are configured on the producer client.

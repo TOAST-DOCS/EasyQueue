@@ -1,17 +1,27 @@
+<!-- pre-align:aligned sig=ce67cc4f28fe -->
+
 # EasyQueue API v1.0 ガイド
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 ガイド**
 
-## EasyQueue API共通情報
+<a id="easyqueue-api-v10-guide"></a>
+## EasyQueue API v1.0 ガイド { #easyqueue-api-v10-guide }
 
-### ドメイン
+<!-- TODO: translate body -->
+
+<a id="easyqueue-api-common-information"></a>
+## EasyQueue API共通情報 { #easyqueue-api-common-information }
+
+<a id="domain"></a>
+### ドメイン { #domain }
 
 | リージョン       | ドメイン                                        |
 |-----------|-----------------------------------------------|
 | 韓国(パンギョ) リージョン | https://kr1-easyqueue.api.nhncloudservice.com |
 | 韓国(ピョンチョン) リージョン | https://kr2-easyqueue.api.nhncloudservice.com |
 
-### 認証及び権限
+<a id="authentication-and-authorization"></a>
+### 認証及び権限 { #authentication-and-authorization }
 
 EasyQueueはAPI呼び出し時の認証/認可のために、Opaque形式のUser Access Keyトークンを使用します。 
 User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。 
@@ -29,8 +39,10 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 * EasyQueue VIEWER権限は、情報を照会する機能のみを使用できます。
 * EasyQueue CLIENT権限は、メッセージを送受信する機能のみを使用できます。EasyQueue VIEWER権限を含みます。
 
-### リクエスト共通情報
+<a id="request-common-information"></a>
+### リクエスト共通情報 { #request-common-information }
 
+<a id="request-common-information-path-parameter"></a>
 #### Path Parameter
 
 全てのAPIは、AppkeyをPath Parameterとして指定する必要があります。
@@ -41,7 +53,8 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | --- | --- |
 | appKey | コンソールで発行されたAppkey |
 
-### レスポンス共通情報
+<a id="response-common-information"></a>
+### レスポンス共通情報 { #response-common-information }
 
 全てのAPIリクエストに対して**200 OK**でレスポンスします。詳細なレスポンス結果は、次の例のように応答本文のヘッダを参照してください。
 
@@ -84,12 +97,15 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | header.resultMessage | String  | 結果メッセージ |
 
 
-## Topic API
+<a id="topic-api"></a>
+## Topic API { #topic-api }
 
-### トピック一覧照会
+<a id="view-a-topic-list"></a>
+### トピック一覧照会 { #view-a-topic-list }
 
 トピック一覧を照会します。
 
+<a id="view-a-topic-list-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -109,6 +125,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | page | Integer | 最小1 | 任意 | 1 | ページ番号 |
 | limit | Integer | 最小1、最大3,000 | 任意 | 50 | ページあたりの項目数 |
 
+<a id="view-a-topic-list-response"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -161,10 +178,12 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topicList[0].updatedAt | DateTime | トピック修正日時(読み取り専用) |
 | topicList[0].topicStatus | String | トピック状態(ACTIVE、ERROR、WARNING、DELETING)(読み取り専用) |
 
-### トピック作成
+<a id="create-a-topic"></a>
+### トピック作成 { #create-a-topic }
 
 トピックを作成します。
 
+<a id="create-a-topic-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -185,6 +204,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topic.maxRetentionBytes | Long | 最小1,073,741,824<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
 | topic.maxMessageBytes | Integer | 最小1,024<br>最大262,144 | 必須 |  | トピックメッセージの最大サイズ(bytes) |
 
+<a id="create-a-topic-1"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -214,10 +234,12 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 }
 ```
 
-### トピック単件照会
+<a id="single-topic-lookup"></a>
+### トピック単件照会 { #single-topic-lookup }
 
 トピック情報を単件照会します。
 
+<a id="single-topic-lookup-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -232,6 +254,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
 
+<a id="single-topic-lookup-1"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -261,10 +284,12 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 }
 ```
 
-### トピック修正
+<a id="edit-a-topic"></a>
+### トピック修正 { #edit-a-topic }
 
 トピックを修正します。
 
+<a id="edit-a-topic-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -290,6 +315,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | topic.maxRetentionBytes | Long | 最小1,073,741,824<br>最大26,843,545,600 | 必須 |  | パーティション別のログ最大保存サイズ(bytes) |
 | topic.maxMessageBytes | Integer | 最小1,024<br>最大262,144 | 必須 |  | トピックメッセージの最大サイズ(bytes) |
 
+<a id="edit-a-topic-1"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -319,10 +345,12 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 }
 ```
 
-### トピック削除
+<a id="delete-a-topic"></a>
+### トピック削除 { #delete-a-topic }
 
 トピックを削除します。
 
+<a id="delete-a-topic-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -337,6 +365,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
 
+<a id="delete-a-topic-response"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -352,10 +381,12 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 ```
 
 
-### パーティション一覧照会
+<a id="view-a-partition-list"></a>
+### パーティション一覧照会 { #view-a-partition-list }
 
 トピックのパーティション一覧を照会します。
 
+<a id="view-a-partition-list-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -370,6 +401,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
 
+<a id="view-a-partition-list-response"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -412,10 +444,12 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | partitionList[0].messageCount | Long | パーティションの総メッセージ数 |
 
 
-### コンシューマーグループ一覧照会
+<a id="retrieve-consumer-group-list"></a>
+### コンシューマーグループ一覧照会 { #retrieve-consumer-group-list }
 
 トピックのコンシューマーグループ一覧を照会します。
 
+<a id="retrieve-consumer-group-list-request"></a>
 #### リクエスト
 
 [URI]
@@ -430,6 +464,7 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 |---|---|---|---|
 | topicName | String | 必須 | トピック名 |
 
+<a id="retrieve-consumer-group-list-response"></a>
 #### レスポンス
 
 **[Response Body]**
@@ -483,12 +518,15 @@ User Access Keyトークンの発行及び使用に関する詳細は、[User Ac
 | consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
-## Statistics API
+<a id="statistics-api"></a>
+## Statistics API { #statistics-api }
 
-### 統計照会
+<a id="query-statistics"></a>
+### 統計照会 { #query-statistics }
 
 Kafkaに関する統計を照会します。
 
+<a id="query-statistics-request"></a>
 #### リクエスト
 
 **[URI]**
@@ -506,6 +544,7 @@ Kafkaに関する統計を照会します。
 | startDateTime | DateTime | ISO 8601形式、<br>90日以内 | 必須 |  | 照会開始時間(例：2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601形式、<br>照会期間：最小60秒、最大30日 | 必須 |  | 照会終了時間(例：2023-10-27T20:30:00+09:00) |
 
+<a id="query-statistics-response"></a>
 #### レスポンス
 
 **[Response Body]**

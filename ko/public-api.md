@@ -1,17 +1,23 @@
-## EasyQueue API v1.0 가이드
+<!-- pre-align:aligned sig=ce67cc4f28fe -->
+
+<a id="easyqueue-api-v10-guide"></a>
+## EasyQueue API v1.0 가이드 { #easyqueue-api-v10-guide }
 
 **Data & Analytics > EasyQueue > EasyQueue API v1.0 가이드**
 
-## EasyQueue API 공통 정보
+<a id="easyqueue-api-common-information"></a>
+## EasyQueue API 공통 정보 { #easyqueue-api-common-information }
 
-### 도메인
+<a id="domain"></a>
+### 도메인 { #domain }
 
 | 리전        | 도메인                                         |
 |-----------|-----------------------------------------------|
 | 한국(판교) 리전 | https://kr1-easyqueue.api.nhncloudservice.com |
 | 한국(평촌) 리전 | https://kr2-easyqueue.api.nhncloudservice.com |
 
-### 인증 및 권한
+<a id="authentication-and-authorization"></a>
+### 인증 및 권한 { #authentication-and-authorization }
 
 EasyQueue는 API 호출 시 인증/인가를 위해 Opaque형식의 User Access Key 토큰을 사용합니다. 
 User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. 
@@ -29,8 +35,10 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 * EasyQueue VIEWER 권한은 정보를 조회하는 기능만 사용 가능합니다.
 * EasyQueue CLIENT 권한은 메시지를 송/수신하는 기능만 사용 가능합니다. EasyQueue VIEWER 권한을 포함합니다.
 
-### 요청 공통 정보
+<a id="request-common-information"></a>
+### 요청 공통 정보 { #request-common-information }
 
+<a id="request-common-information-path-parameter"></a>
 #### Path Parameter
 
 모든 API는 앱키를 Path Parameter로 지정해야 합니다.
@@ -41,7 +49,8 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | --- | --- |
 | appKey | 콘솔에서 발급받은 앱키(Appkey) |
 
-### 응답 공통 정보
+<a id="response-common-information"></a>
+### 응답 공통 정보 { #response-common-information }
 
 모든 API 요청에 대해서 **200 OK**로 응답합니다. 자세한 응답 결과는 다음의 예와 같이 응답 본문의 헤더를 참고합니다.
 
@@ -84,12 +93,15 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | header.resultMessage | String  | 결과 메시지 |
 
 
-## Topic API
+<a id="topic-api"></a>
+## Topic API { #topic-api }
 
-### 토픽 목록 조회
+<a id="view-a-topic-list"></a>
+### 토픽 목록 조회 { #view-a-topic-list }
 
 토픽 목록을 조회합니다.
 
+<a id="view-a-topic-list-request"></a>
 #### 요청
 
 **[URI]**
@@ -109,6 +121,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | page | Integer | 최소 1 | 선택 | 1 | 페이지 번호 |
 | limit | Integer | 최소 1, 최대 3,000 | 선택 | 50 | 페이지당 항목 수 |
 
+<a id="view-a-topic-list-response"></a>
 #### 응답
 
 **[Response Body]**
@@ -161,10 +174,12 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topicList[0].updatedAt | DateTime | 토픽 수정 일시(읽기 전용) |
 | topicList[0].topicStatus | String | 토픽 상태(ACTIVE, ERROR, WARNING, DELETING)(읽기 전용) |
 
-### 토픽 생성
+<a id="create-a-topic"></a>
+### 토픽 생성 { #create-a-topic }
 
 토픽을 생성합니다.
 
+<a id="create-a-topic-request"></a>
 #### 요청
 
 **[URI]**
@@ -185,6 +200,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topic.maxRetentionBytes | Long | 최소 1,073,741,824<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
 | topic.maxMessageBytes | Integer | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
 
+<a id="create-a-topic-1"></a>
 #### 응답
 
 **[Response Body]**
@@ -214,10 +230,12 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 }
 ```
 
-### 토픽 단건 조회
+<a id="single-topic-lookup"></a>
+### 토픽 단건 조회 { #single-topic-lookup }
 
 토픽 정보를 단건 조회합니다.
 
+<a id="single-topic-lookup-request"></a>
 #### 요청
 
 **[URI]**
@@ -232,6 +250,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
 
+<a id="single-topic-lookup-1"></a>
 #### 응답
 
 **[Response Body]**
@@ -261,10 +280,12 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 }
 ```
 
-### 토픽 수정
+<a id="edit-a-topic"></a>
+### 토픽 수정 { #edit-a-topic }
 
 토픽을 수정합니다.
 
+<a id="edit-a-topic-request"></a>
 #### 요청
 
 **[URI]**
@@ -290,6 +311,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | topic.maxRetentionBytes | Long | 최소 1,073,741,824<br>최대 26,843,545,600 | 필수 |  | 파티션별 로그 최대 저장 크기(bytes) |
 | topic.maxMessageBytes | Integer | 최소 1,024<br>최대 262,144 | 필수 |  | 토픽 메시지의 최대 크기(bytes) |
 
+<a id="edit-a-topic-1"></a>
 #### 응답
 
 **[Response Body]**
@@ -319,10 +341,12 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 }
 ```
 
-### 토픽 삭제
+<a id="delete-a-topic"></a>
+### 토픽 삭제 { #delete-a-topic }
 
 토픽을 삭제합니다.
 
+<a id="delete-a-topic-request"></a>
 #### 요청
 
 **[URI]**
@@ -337,6 +361,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
 
+<a id="delete-a-topic-response"></a>
 #### 응답
 
 **[Response Body]**
@@ -352,10 +377,12 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 ```
 
 
-### 파티션 목록 조회
+<a id="view-a-partition-list"></a>
+### 파티션 목록 조회 { #view-a-partition-list }
 
 토픽의 파티션 목록을 조회합니다.
 
+<a id="view-a-partition-list-request"></a>
 #### 요청
 
 **[URI]**
@@ -370,6 +397,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
 
+<a id="view-a-partition-list-response"></a>
 #### 응답
 
 **[Response Body]**
@@ -412,10 +440,12 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | partitionList[0].messageCount | Long | 파티션 전체 메시지 수 |
 
 
-### 컨슈머 그룹 목록 조회
+<a id="retrieve-consumer-group-list"></a>
+### 컨슈머 그룹 목록 조회 { #retrieve-consumer-group-list }
 
 토픽의 컨슈머 그룹 목록을 조회합니다.
 
+<a id="retrieve-consumer-group-list-request"></a>
 #### 요청
 
 [URI]
@@ -430,6 +460,7 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 |---|---|---|---|
 | topicName | String | 필수 | 토픽 이름 |
 
+<a id="retrieve-consumer-group-list-response"></a>
 #### 응답
 
 **[Response Body]**
@@ -483,12 +514,15 @@ User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Acc
 | consumerGroupList[0].memberList[0].partitionList[0].lag | Long | Lag |
 
 
-## Statistics API
+<a id="statistics-api"></a>
+## Statistics API { #statistics-api }
 
-### 통계 조회
+<a id="query-statistics"></a>
+### 통계 조회 { #query-statistics }
 
 Kafka 관련 통계를 조회합니다.
 
+<a id="query-statistics-request"></a>
 #### 요청
 
 **[URI]**
@@ -506,6 +540,7 @@ Kafka 관련 통계를 조회합니다.
 | startDateTime | DateTime | ISO 8601 형식, <br>90일 이내 | 필수 |  | 조회 시작 시간(예: 2023-10-27T19:30:00+09:00) |
 | endDateTime | DateTime | ISO 8601 형식, <br>조회 기간 최소 60초, 최대 30일 | 필수 |  | 조회 마지막 시간(예: 2023-10-27T20:30:00+09:00) |
 
+<a id="query-statistics-response"></a>
 #### 응답
 
 **[Response Body]**

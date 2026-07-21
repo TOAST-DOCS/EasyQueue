@@ -1,8 +1,12 @@
-## API 오류 코드
+<!-- pre-align:aligned sig=48bbb3d5405d -->
+
+<a id="api-error-codes"></a>
+## API 오류 코드 { #api-error-codes }
 
 **Data & Analytics > EasyQueue > API 오류 코드**
 
-## 오류 코드
+<a id="error-code"></a>
+## 오류 코드 { #error-code }
 
 | 오류 코드 | 오류 메시지 | 설명 |
 | --- | --- | --- |
