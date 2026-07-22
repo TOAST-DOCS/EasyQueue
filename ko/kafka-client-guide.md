@@ -25,7 +25,7 @@ Kafka 클라이언트를 사용하여 EasyQueue 서비스에서 메시지를 송
 | Secret Access Key | 사용자 비밀 키 | sasl.oauthbearer.client.secret |
 | 인증 서버 도메인 | OAuth 토큰 발급 URL | sasl.oauthbearer.token.endpoint.url |
 
-자세한 내용은 [Public API 사용 가이드 > API 인증 방식 > User Access Key 토큰](/ko/nhncloud/ko/public-api/user-access-key-token/)을 참고하세요.
+자세한 내용은 [Public API 사용 가이드 > API 인증 방식 > User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token/)을 참고하세요.
 
 <a id="check-the-authorization-information"></a>
 ### 인가 정보 확인 { #check-the-authorization-information }
