@@ -11,7 +11,11 @@ Also, messages are distributed and replicated within the cluster to prevent data
 <a id="easyqueue-overview"></a>
 ## EasyQueue Overview { #easyqueue-overview }
 
-<!-- TODO: translate body -->
+**Data & Analytics > EasyQueue > Overview**
+
+NHN Cloud EasyQueue is a fully managed message queue service that lets you instantly create and leverage topics via shared Kafka clusters. It eliminates the overhead of infrastructure setup and complex cluster management.
+Users can easily build flexible data pipelines by asynchronously producing and consuming data between applications via Kafka topics.
+Also, messages are distributed and replicated within the cluster to prevent data loss even during failures. This ensures reliable processing, as messages remain safely stored in the queue even if the receiving application is temporarily unavailable.
 
 <a id="service-access-path"></a>
 ## Service Access Path { #service-access-path }
