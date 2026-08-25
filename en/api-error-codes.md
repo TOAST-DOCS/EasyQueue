@@ -7,7 +7,7 @@
 <a id="api-error-codes"></a>
 ## API Error Codes { #api-error-codes }
 
-<!-- TODO: translate body -->
+**Data & Analytics > EasyQueue > API Error Codes**
 
 <a id="error-code"></a>
 ## Error Code { #error-code }
