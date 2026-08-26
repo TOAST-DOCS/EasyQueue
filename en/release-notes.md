@@ -7,7 +7,7 @@
 <a id="release-notes"></a>
 ## Release Notes { #release-notes }
 
-<!-- TODO: translate body -->
+**Data & Analytics > EasyQueue > Release Notes**
 
 <a id="march-24-2026"></a>
 ## March 24, 2026 { #march-24-2026 }

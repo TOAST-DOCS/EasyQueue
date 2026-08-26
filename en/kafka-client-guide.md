@@ -860,17 +860,20 @@ Messages committed by the producer are not being read by the consumer.
 <a id="message-timestamp-error"></a>
 ### Message timestamp error { #message-timestamp-error }
 
-<!-- TODO: translate body -->
-
 <a id="message-timestamp-error-symptoms"></a>
 #### Symptoms
 
-<!-- TODO: translate body -->
+Message delivery fails with an InvalidTimestampException error.
+
+```
+Failed to send message: org.apache.kafka.common.errors.InvalidTimestampException: Timestamp 1776230740705 of message with offset 0 is out of range. The timestamp should be within [-9223370260710424559, 1776147951248]
+```
 
 <a id="message-timestamp-error-solution"></a>
 #### Solution
 
-<!-- TODO: translate body -->
+- The broker rejects messages with a timestamp more than 1 hour in the future. If you are specifying the message timestamp manually, check the value.
+- Check the system time of the producer server (timezone, NTP synchronization, etc.).
 
 <a id="transaction-delay-during-broker-maintenance"></a>
 ### Transaction Delay During Broker Maintenance { #transaction-delay-during-broker-maintenance }

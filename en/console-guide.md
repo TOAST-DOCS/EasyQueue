@@ -7,7 +7,7 @@
 <a id="console-user-guide"></a>
 ## Console User Guide { #console-user-guide }
 
-<!-- TODO: translate body -->
+**Data & Analytics > EasyQueue > Console User Guide**
 
 <a id="manage-topics"></a>
 ## Manage Topics { #manage-topics }
