@@ -7,7 +7,7 @@
 <a id="easyqueue-api-v10-guide"></a>
 ## EasyQueue API v1.0 Guide { #easyqueue-api-v10-guide }
 
-<!-- TODO: translate body -->
+**Data & Analytics > EasyQueue > EasyQueue API v1.0 Guide**
 
 <a id="easyqueue-api-common-information"></a>
 ## EasyQueue API Common Information { #easyqueue-api-common-information }

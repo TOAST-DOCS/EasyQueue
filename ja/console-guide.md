@@ -7,7 +7,7 @@
 <a id="console-user-guide"></a>
 ## コンソール使用ガイド { #console-user-guide }
 
-<!-- TODO: translate body -->
+**Data & Analytics > EasyQueue > コンソール使用ガイド**
 
 <a id="manage-topics"></a>
 ## トピックの管理 { #manage-topics }
