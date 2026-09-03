@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=46471a41c82e -->
 
 <a id="release-notes"></a>
-## 릴리스 노트 { #release-notes }
-
-**Data & Analytics > EasyQueue > 릴리스 노트**
+## Data & Analytics > EasyQueue > 릴리스 노트 { #release-notes }
 
 <a id="march-24-2026"></a>
 ## 2026. 03. 24. { #march-24-2026 }

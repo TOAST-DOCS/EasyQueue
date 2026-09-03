@@ -1,13 +1,7 @@
 <!-- pre-align:aligned sig=48bbb3d5405d -->
 
-# APIエラーコード
-
-**Data & Analytics > EasyQueue > APIエラーコード**
-
 <a id="api-error-codes"></a>
-## API エラーコード { #api-error-codes }
-
-**Data & Analytics > EasyQueue > API エラーコード**
+## Data & Analytics > EasyQueue > APIエラーコード { #api-error-codes }
 
 <a id="error-code"></a>
 ## エラーコード { #error-code }
