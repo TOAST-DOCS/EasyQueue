@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=fbd2c85fde15 -->
 
 <a id="kafka-client-guide"></a>
-## Kafka Client Guide { #kafka-client-guide }
-
-**Data & Analytics > EasyQueue > Kafka Client Guide**
+## Data & Analytics > EasyQueue > Kafka Client Guide { #kafka-client-guide }
 
 This guide explains how to use the Kafka client to send and receive messages to and from the EasyQueue service.
 

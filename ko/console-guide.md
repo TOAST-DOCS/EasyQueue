@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=d4debfc8251b -->
 
 <a id="console-user-guide"></a>
-## 콘솔 사용 가이드 { #console-user-guide }
-
-**Data & Analytics > EasyQueue > 콘솔 사용 가이드**
+## Data & Analytics > EasyQueue > 콘솔 사용 가이드 { #console-user-guide }
 
 <a id="manage-topics"></a>
 ## 토픽 관리하기 { #manage-topics }

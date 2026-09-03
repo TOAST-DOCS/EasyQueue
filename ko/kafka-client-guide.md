@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=fbd2c85fde15 -->
 
 <a id="kafka-client-guide"></a>
-## Kafka 클라이언트 가이드 { #kafka-client-guide }
-
-**Data & Analytics > EasyQueue > Kafka 클라이언트 가이드**
+## Data & Analytics > EasyQueue > Kafka 클라이언트 가이드 { #kafka-client-guide }
 
 EasyQueue 서비스에 Kafka 클라이언트를 사용하여 메시지를 송수신하는 방법을 설명합니다.
 

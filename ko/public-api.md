@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=ce67cc4f28fe -->
 
 <a id="easyqueue-api-v10-guide"></a>
-## EasyQueue API v1.0 가이드 { #easyqueue-api-v10-guide }
-
-**Data & Analytics > EasyQueue > EasyQueue API v1.0 가이드**
+## Data & Analytics > EasyQueue > EasyQueue API v1.0 가이드 { #easyqueue-api-v10-guide }
 
 <a id="easyqueue-api-common-information"></a>
 ## EasyQueue API 공통 정보 { #easyqueue-api-common-information }

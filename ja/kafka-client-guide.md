@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=fbd2c85fde15 -->
 
 <a id="kafka-client-guide"></a>
-## Kafkaクライアントガイド { #kafka-client-guide }
-
-**Data & Analytics > EasyQueue > Kafkaクライアントガイド**
+## Data & Analytics > EasyQueue > Kafkaクライアントガイド { #kafka-client-guide }
 
 EasyQueueサービスでKafkaクライアントを使用して、メッセージを送受信する方法を説明します。
 

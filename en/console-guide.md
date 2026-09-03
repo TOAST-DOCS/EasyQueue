@@ -1,13 +1,7 @@
 <!-- pre-align:aligned sig=d4debfc8251b -->
 
-# Console Guide
-
-**Data & Analytics > EasyQueue > Console User Guide**
-
 <a id="console-user-guide"></a>
-## Console User Guide { #console-user-guide }
-
-**Data & Analytics > EasyQueue > Console User Guide**
+## Data & Analytics > EasyQueue > Console User Guide { #console-user-guide }
 
 <a id="manage-topics"></a>
 ## Manage Topics { #manage-topics }
