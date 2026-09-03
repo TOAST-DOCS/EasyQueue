@@ -1,13 +1,7 @@
 <!-- pre-align:aligned sig=d4debfc8251b -->
 
-# コンソール使用ガイド
-
-**Data & Analytics > EasyQueue > コンソール使用ガイド**
-
 <a id="console-user-guide"></a>
-## コンソール使用ガイド { #console-user-guide }
-
-<!-- TODO: translate body -->
+## Data & Analytics > EasyQueue > コンソール使用ガイド { #console-user-guide }
 
 <a id="manage-topics"></a>
 ## トピックの管理 { #manage-topics }

@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=154b1ec7fbd6 -->
 
 <a id="easyqueue-overview"></a>
-## EasyQueue 개요 { #easyqueue-overview }
-
-**Data & Analytics > EasyQueue > 개요**
+## Data & Analytics > EasyQueue > 개요 { #easyqueue-overview }
 
 NHN Cloud EasyQueue는 별도의 인프라 구축이나 복잡한 클러스터 관리 부담 없이, NHN Cloud가 제공하는 완전 관리형 공용 Kafka 클러스터를 통해 즉시 토픽을 생성하고 활용할 수 있는 메시지 큐 서비스입니다.
 사용자는 Kafka 토픽을 통해 애플리케이션 간 데이터를 비동기적으로 발행 및 구독하며 유연한 데이터 파이프라인을 손쉽게 구성할 수 있습니다.

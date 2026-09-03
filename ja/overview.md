@@ -1,17 +1,11 @@
 <!-- pre-align:aligned sig=154b1ec7fbd6 -->
 
-# EasyQueue概要
-
-**Data & Analytics > EasyQueue > 概要**
-
-NHN Cloud EasyQueueは、別途のインフラ構築や複雑なクラスター管理の負担なく、NHN Cloudが提供する完全マネージド型のパブリックKafkaクラスターを通じて、即時にトピックを作成して活用できるメッセージキューサービスです。
-ユーザーはKafkaトピックを通じて、アプリケーション間でデータを非同期的に発行及びサブスクライブし、柔軟なデータパイプラインを簡単に構成できます。
-また、メッセージはクラスター内に分散保存及び多重複製され、障害時でもデータ損失を防止し、受信アプリケーションが一時中断した場合でもキュー(queue)に保管されたメッセージを通じて安定した処理を保証します。
-
 <a id="easyqueue-overview"></a>
-## EasyQueue 概要 { #easyqueue-overview }
+## Data & Analytics > EasyQueue > 概要 { #easyqueue-overview }
 
-<!-- TODO: translate body -->
+NHN Cloud EasyQueue は、別途のインフラ構築や複雑なクラスター管理の負担なく、NHN Cloud が提供する完全マネージド型のパブリック Kafka クラスターを通じて、すぐにトピックを作成して活用できるメッセージキューサービスです。
+ユーザーは Kafka トピックを通じてアプリケーション間のデータを非同期的に発行およびサブスクライブし、柔軟なデータパイプラインを手軽に構成できます。
+また、メッセージはクラスター内に分散保存および多重レプリカされるため、障害発生時もデータ損失を防ぎます。受信アプリケーションが一時停止した場合でも、キュー (queue) に保管されたメッセージを通じて安定した処理を保証します。
 
 <a id="service-access-path"></a>
 ## サービスへのアクセス経路 { #service-access-path }

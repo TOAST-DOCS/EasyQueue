@@ -1,9 +1,7 @@
 <!-- pre-align:aligned sig=fbd2c85fde15 -->
 
 <a id="kafka-client-guide"></a>
-## Kafkaクライアントガイド { #kafka-client-guide }
-
-**Data & Analytics > EasyQueue > Kafkaクライアントガイド**
+## Data & Analytics > EasyQueue > Kafkaクライアントガイド { #kafka-client-guide }
 
 EasyQueueサービスでKafkaクライアントを使用して、メッセージを送受信する方法を説明します。
 
@@ -860,17 +858,20 @@ ConcurrentTransactionsExceptionエラーが発生し、新しいトランザク�
 <a id="message-timestamp-error"></a>
 ### メッセージタイムスタンプエラー { #message-timestamp-error }
 
-<!-- TODO: translate body -->
-
 <a id="message-timestamp-error-symptoms"></a>
 #### 症状
 
-<!-- TODO: translate body -->
+InvalidTimestampException エラーが発生し、メッセージの送信に失敗する
+
+```
+Failed to send message: org.apache.kafka.common.errors.InvalidTimestampException: Timestamp 1776230740705 of message with offset 0 is out of range. The timestamp should be within [-9223370260710424559, 1776147951248]
+```
 
 <a id="message-timestamp-error-solution"></a>
 #### 解決方法
 
-<!-- TODO: translate body -->
+- ブローカーは1時間以上先のタイムスタンプのメッセージを拒否します。メッセージのタイムスタンプを直接指定している場合は、値を確認します。
+- プロデューサーサーバーのシステム時刻を確認します（Timezone、NTP 同期など）。
 
 <a id="transaction-delay-during-broker-maintenance"></a>
 ### ブローカーのメンテナンス時のトランザクション遅延 { #transaction-delay-during-broker-maintenance }

@@ -1,13 +1,7 @@
 <!-- pre-align:aligned sig=46471a41c82e -->
 
-# リリースノート
-
-**Data & Analytics > EasyQueue > リリースノート**
-
 <a id="release-notes"></a>
-## リリースノート { #release-notes }
-
-<!-- TODO: translate body -->
+## Data & Analytics > EasyQueue > リリースノート { #release-notes }
 
 <a id="march-24-2026"></a>
 ## 2026. 03. 24. { #march-24-2026 }
