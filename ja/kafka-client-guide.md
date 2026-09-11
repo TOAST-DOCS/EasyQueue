@@ -42,7 +42,7 @@ EasyQueueコンソールで以下の情報を確認します。
 | Topic | トピック作成後、トピック名を確認 | {APP_KEY}.{TOPIC_NAME} |
 
 !!! tip "参考：Consumer Group規則"
-    Consumer Group IDはコンソールで別途提供されず、{APP_KEY}.{GROUP_NAME}の形式で指定する必要があります。Appkeyで始まらないConsumer Group IDは使用できません。
+    Consumer Group IDはコンソールで別途提供されず、{APP_KEY}.{GROUP_NAME}の形式で指定する必要があります。Appkeyで始まらないConsumer Group IDは使用できません。
 
 <a id="configure-sasloauthbearer"></a>
 ### SASL/OAUTHBEARER設定 { #configure-sasloauthbearer }
@@ -59,7 +59,7 @@ EasyQueueはSASL/OAUTHBEARER認証方式を使用します。Kafkaクライア�
 | sasl.oauthbearer.scope | appKey:{APP_KEY} | EasyQueueサービスのAppkey |
 
 !!! danger "注意"
-    OAuthトークンは、User Access Keyで設定したトークンの有効時間が経過すると期限切れになります。長時間実行されるプロデューサー/コンシューマーは、トークンの自動更新設定が必須であり、設定しない場合はトークンの期限切れ時に認証エラーで接続が切断されます。
+    OAuthトークンは、User Access Keyで設定したトークンの有効時間が経過すると期限切れになります。長時間実行されるプロデューサー/コンシューマーは、トークンの自動更新設定が必須であり、設定しない場合はトークンの期限切れ時に認証エラーで接続が切断されます。
 
 <a id="client-examples-by-language"></a>
 ## 言語別クライアント例 { #client-examples-by-language }
